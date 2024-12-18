@@ -1,0 +1,12 @@
+Все из папки: Дубликат труб с генератора
+Generator_Mat_2_2D_View
+
+Сам генератор 2 сета:
+Generator_Mat_2D_View
+Generator_Mat_2_2D_View
+
+Generator_portable_Mat_2D_View:
+1) Generator_portable
+2) Canister
+3) Electrical_Panel_1
+4) Пак кабелей (Все)

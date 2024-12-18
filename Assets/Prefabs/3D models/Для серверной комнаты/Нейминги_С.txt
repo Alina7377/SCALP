@@ -1,0 +1,6 @@
+Server_Rack_Mat_2D_View:
+Все Серверные стойки
+
+Industrial_Fan_Mat_2D_View:
+1) Industrial_Fan
+

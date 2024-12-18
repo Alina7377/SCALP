@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Grab
+  - Placed
+  - Take
+  - Interact
+  - Place
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - NoNavigate
+  - Water
+  - UI
+  - Graund
+  - Player
+  - Interaction
+  - Doors
+  - Enemy
+  - Light
+  - AudioSphere
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

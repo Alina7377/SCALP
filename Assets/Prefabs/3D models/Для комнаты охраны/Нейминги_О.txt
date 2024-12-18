@@ -1,0 +1,15 @@
+Intercom_Mat_2D_View
+1) Alarm_Button
+2) Control_Panel
+3) Intercom
+4) Telephone
+5) Switches (все 4) (Из папки Для комнаты управления энергосистемами)
+
+
+Monitoring_Equipment_Mat_1_2D_View
+Monitoring_Equipment_Mat_2_2D_View
+1) Monitoring_Equipment
+
+
+Board_With_A_Plan_Mat_2D_View:
+1) Board_With_A_Plan_For_S
