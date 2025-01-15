@@ -132,6 +132,11 @@ public class GridManager : MonoBehaviour
 
     void InitializeLevel()
     {
+        // Момент начала игры - запоминаем стартовое время
+        GameMode.StartTime = Time.time;
+        // Определяем, что начинаем играть 
+        Profile.Instance.SetProfilParam("count_game", (Profile.Instance.GetProfilParamF("count_game") + 1f).ToString());
+
         _enemyManager = GetComponent<EnemyManager>();
         
         GenerateGrid();

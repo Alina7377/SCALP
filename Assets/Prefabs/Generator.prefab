@@ -221,6 +221,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactObject: {fileID: 2463980774356950052}
   _itemType: 1
+  audioSource: {fileID: 0}
+  genActivationSound: {fileID: 0}
 --- !u!1001 &1593823344946508369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,6 +280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c213a0bc8ac7e14449525d586582cae2,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 259
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c213a0bc8ac7e14449525d586582cae2,
         type: 3}

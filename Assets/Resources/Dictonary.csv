@@ -1,4 +1,12 @@
-tag;avail;rus;eng|Menu.Start;;Новая игра;New Game|Menu.Library;;Архив;Archive|Menu.Settings;;Настройки;Settings|Menu.Quit;;Выход;Quit|UI.Interact;;Взаимодействовать;Interact|UI.NoPower;;ОБЕСТОЧЕНО;NO POWER|UI.Red;;Требуется КРАСНАЯ карта;RED card is required|UI.Green;;Требуется ЗЕЛЕНАЯ карта;GREEN card is required|UI.Blue;;Требуется СИНЯЯ карта;BLUE card is required|UI.Request;;Отсутствует необходимый предмет;An object is required|Menu.Back;;Назад;Back|Menu.Language;;Язык;Language|Menu.Volume;;Громкость;Volume|Menu.ChangeLanguage;;Русский;English|Menu.No;;Нет;No|Menu.Yes;;Да;Yes|Menu.Sensitivity;;Чувствительность мыши;Mouse sensitivity|Menu.PlayAudio;;Проиграть запись;Play the recording|Menu.PressAnyKey;;Нажмите любую кнопку;Press any key|Menu.Resume;;Продолжить;Resume|Menu.Restart;;Заново;Restart|Menu.MainMenu;;Главное меню;Main menu|UI.AlreadyActive;;Уже активно;Already active|RoomName.Gen;;ГЕНЕРАТОР;GENERATOR|RoomName.Pow;;ЭНЕРГОУЗЕЛ;POWER|RoomName.Sec;;ОХРАНА;SECURITY|RoomName.Lab;;ЛАБОРАТОРИЯ;LABORATORY|RoomName.Med;;МЕДКОМНАТА;MEDICAL|RoomName.Rest;;КОМНАТА ОТДЫХА;RECREATION|RoomName.Serv;;СЕРВЕРНАЯ;SERVERS|RoomName.Can;;СТОЛОВАЯ;CAFETERIA|RoomName.Ware;;СКЛАД;STORAGE|RoomName.Exit;;ВЫХОД;EXIT|RoomName.Start;;ЭКСПЕРИМЕНТ;EXPERIMENTAL|UI.Escape;;Вы сбежали!;You escaped!|UI.NoEscape;;Вас поймали!;You're caught!|Menu.TrainingLevel;;Обучение;Training|UI.GrabNew;;В архив добавлен новый предмет;New item has been added to the archive|UI.PowerEnable;;Питание восстановлено;Power restored|UI.LightClose;;Весь свет временно отключен;All lights are temporarily turned off|UI.OpenDoors;;Все двери временно открыты;All doors are temporarily open|Training.1;;Управление персонажем: - Движение: WASD - Бег: Shift - Прыжок: Пробел - Присесть: CTRL;Character Control: - Move: WASD - Sprint: Shift - Jump: Space - Crouch: CTRL|Training.2;;Нажмите E или СКМ, чтобы взаимодействовать с объектами. Подойдите к замку двери и нажмите, чтобы открыть дверь;Press E or Middle Mouse Button (MMB) to interact with objects. Approach the door lock and press to open the door.|Training.3;;Эта дверь закрыта на зелёную ключ-карту. Найдите её, чтобы открыть дверь.;This door is locked with a green keycard. Find it to open the door.|Training.4;;Удерживая ключ-карту, подойдите к замку двери и нажмите E или СКМ, чтобы использовать её.;While holding the keycard, approach the door lock and press E or MMB to use it.|Training.5;;Нажмите E или СКМ, чтобы поднять предмет. Нажмите F или ЛКМ, чтобы бросить предмет. Нажмите Q или ПКМ, чтобы положить предмет.;Press E or MMB to pick up an item. Press F or Left Mouse Button (LMB) to throw it. Press Q or Right Mouse Button (RMB) to place it down.|Training.6;;Питание в этой комнате отключено. Восстановите питание, чтобы открыть дверь.;The power to this room is off. Restore power to open the door.|Training.7;;Нажмите E или СКМ, чтобы поднять аккумулятор.;Press E or MMB to pick up the battery.|Training.8;;Нажмите E или CКМ, чтобы установить аккумулятор в генератор.;Press E or MMB to place the battery into the generator.|Training.9;;Питание восстановлено. Теперь вы можете открывать запитанные комнаты.;Power restored. You can now open powered rooms.|Training.10;;В мире можно найти коллекционные предметы.;Collectibles can be found in the world.|Training.11;;Нажмите E или СКМ, чтобы собрать коллекционный предмет.;Press E or MMB to collect the item.|Training.12;;Собранные материалы доступны в разделе «Архив» главного меню.;"Collected items are available in the ""Archive"" section of the main menu.|"Training.13;;Эта дверь закрыта на синюю ключ-карту. Найдите способ её открыть.;This door is locked with a blue keycard. Find a way to open it.|Training.14;;Нажмите E или СКМ, чтобы подобрать специальную карту доступа.;Press E or MMB to pick up the special access card.|Training.15;;Удерживая карту, подойдите к панели и нажмите E или СКМ, чтобы активировать её.;While holding the card, approach the panel and press E or MMB to activate it.|Training.16;;Все двери в запитанных комнатах открыты на ограниченное время! Поторопитесь!;All doors in powered rooms are open for a limited time! Hurry up!|Training.17;;Двери скоро закроются. Поторопитесь!;Doors will close soon. Hurry up!|Reports.Page1;t;"<b>ЭКСПЕРИМЕНТ №42-D 
+tag;avail;rus;eng;|UI.Interact;;Взаимодействовать;Interact;|UI.NoPower;;ОБЕСТОЧЕНО;NO POWER;|UI.Red;;Требуется КРАСНАЯ карта;RED card is required;|UI.Green;;Требуется ЗЕЛЕНАЯ карта;GREEN card is required;|UI.Blue;;Требуется СИНЯЯ карта;BLUE card is required;|UI.Request;;Отсутствует необходимый предмет;An object is required;|UI.Escape;;Вы сбежали!;You escaped!;|UI.NoEscape;;Вас поймали!;You're caught!;|UI.AlreadyActive;;Уже активно;Already active;|UI.GrabNew;;В архив добавлен новый предмет;New item has been added to the archive;|UI.PowerEnable;;Питание восстановлено;Power restored;|UI.LightClose;;Весь свет временно отключен;All lights are temporarily turned off;|UI.OpenDoors;;Все двери временно открыты;All doors are temporarily open;|Menu.Start;;Новая игра;New Game;|Menu.Library;;Архив;Archive;|Menu.Settings;;Настройки;Settings;|Menu.Quit;;Выход;Quit;|Menu.Back;;Назад;Back;|Menu.Language;;Язык;Language;|Menu.Volume;;Громкость;Volume;|Menu.ChangeLanguage;;Русский;English;|Menu.No;;Нет;No;|Menu.Yes;;Да;Yes;|Menu.Sensitivity;;Чувствительность мыши;Mouse sensitivity;|Menu.PlayAudio;;Проиграть запись;Play the recording;|Menu.PressAnyKey;;Нажмите любую кнопку;Press any key;|Menu.Resume;;Продолжить;Resume;|Menu.Restart;;Заново;Restart;|Menu.MainMenu;;Главное меню;Main menu;|Menu.TrainingLevel;;Обучение;Training;|Menu.Leaderboard;;Лидеры;Leaderboard;|Menu.ProgressDocum;;Собрано документов:;Collected documents:;|RoomName.Gen;;ГЕНЕРАТОР;GENERATOR;|RoomName.Pow;;ЭНЕРГОУЗЕЛ;POWER;|RoomName.Sec;;ОХРАНА;SECURITY;|RoomName.Lab;;ЛАБОРАТОРИЯ;LABORATORY;|RoomName.Med;;МЕДКОМНАТА;MEDICAL;|RoomName.Rest;;КОМНАТА ОТДЫХА;RECREATION;|RoomName.Serv;;СЕРВЕРНАЯ;SERVERS;|RoomName.Can;;СТОЛОВАЯ;CAFETERIA;|RoomName.Ware;;СКЛАД;STORAGE;|RoomName.Exit;;ВЫХОД;EXIT;|RoomName.Start;;ЭКСПЕРИМЕНТ;EXPERIMENTAL;|Lid.UserName;;Ник игрока;Player's nickname;|Lid.BestTime;;Лучшее время;Best time;|Lid.WinGameCount;;Успешных побегов;Escapes count;|Lid.Winrate;;Процент побед;Win rate;|Lid.PlayerProfile;;ПРОФИЛЬ ИГРОКА;PLAYER PROFILE;|Lid.Top;;ТОП ИГРОКОВ;TOP PLAYERS;|Lid.BestResult;;ВАШ ЛУЧШИЙ РЕЗУЛЬТАТ;YOUR BEST RESULT;|Lid.Progress;;Прогресс;Progress;|Lid.TimeToGame;;Время в игре;Time in the game;|Lid.ChangeName;;Изменить ник;Change Nickname;|Lid.RatingNum;;Текущая позиция в лидерборде;Current position in the leaderboard;|Lid.ResetProggress;;Сбросить прогресс;Reset Progress;|Lid.NewUser;;"Добро пожаловать в таблицу лидеров! Придумайте себе ник, чтобы ваши результаты отображались в таблице. В таблицу попадают только те игроки, которые успешно прошли игру хотя-бы раз";"Welcome to the leaderboard! Come up with your nickname so that your results are displayed in the table. Only those players who have successfully completed the game at least once are included in the table.";|Lid.ChangeNikname;;Измените имя своего профиля. Все ваши результаты и позиция в таблице лидеров сохранятся;Change your profile name. All your results and position in the leaderboard will be saved.;|Lid.Info;;Ник игрока не может быть пустым, совпадать с никами других игроков или содержать символы ;A player's nickname cannot be empty, match other players' nicknames, or contain symbols;|Lid.Cancel;;Отменить;Cancel;|Lid.Confirm;;Подтвердить;Confirm;|Lid.NoValid;;Введены недопустимые символы!;Invalid characters have been entered!;|Lid.NoNull;;Ник не может быть пустым!;The nickname can't be empty!;|Lid.UsingNikname;;Такой ник уже используется!;The nickname is already in use!;|Lid.ConnectionError;;Невозможно подключиться к серверу;Unable to connect to the server;|Lid.ConnectionAttempt;;Подключение к серверу...;Connecting to the server...;|Training.1;;"Управление персонажем:
+- Движение: WASD
+- Бег: Shift
+- Прыжок: Пробел
+- Присесть: CTRL";"Character Control:
+- Move: WASD
+- Sprint: Shift
+- Jump: Space
+- Crouch: CTRL";|Training.2;;Нажмите E или СКМ, чтобы взаимодействовать с объектами. Подойдите к замку двери и нажмите, чтобы открыть дверь;Press E or Middle Mouse Button (MMB) to interact with objects. Approach the door lock and press to open the door.;|Training.3;;Эта дверь закрыта на зелёную ключ-карту. Найдите её, чтобы открыть дверь.;This door is locked with a green keycard. Find it to open the door.;|Training.4;;Удерживая ключ-карту, подойдите к замку двери и нажмите E или СКМ, чтобы использовать её.;While holding the keycard, approach the door lock and press E or MMB to use it.;|Training.5;;Нажмите E или СКМ, чтобы поднять предмет. Нажмите F или ЛКМ, чтобы бросить предмет. Нажмите Q или ПКМ, чтобы положить предмет.;Press E or MMB to pick up an item. Press F or Left Mouse Button (LMB) to throw it. Press Q or Right Mouse Button (RMB) to place it down.;|Training.6;;Питание в этой комнате отключено. Восстановите питание, чтобы открыть дверь.;The power to this room is off. Restore power to open the door.;|Training.7;;Нажмите E или СКМ, чтобы поднять аккумулятор.;Press E or MMB to pick up the battery.;|Training.8;;Нажмите Q или ПКМ, чтобы установить аккумулятор в генератор.;Press Q or RMB to place the battery into the generator.;|Training.9;;Питание восстановлено. Теперь вы можете открывать запитанные комнаты.;Power restored. You can now open powered rooms.;|Training.10;;В мире можно найти коллекционные предметы.;Collectibles can be found in the world.;|Training.11;;Нажмите E или СКМ, чтобы собрать коллекционный предмет.;Press E or MMB to collect the item.;|Training.12;;Собранные материалы доступны в разделе «Архив» главного меню.;"Collected items are available in the ""Archive"" section of the main menu.";|Training.13;;Эта дверь закрыта на синюю ключ-карту. Найдите способ её открыть.;This door is locked with a blue keycard. Find a way to open it.;|Training.14;;Нажмите E или СКМ, чтобы подобрать специальную карту доступа.;Press E or MMB to pick up the special access card.;|Training.15;;Удерживая карту, подойдите к панели и нажмите E или СКМ, чтобы активировать её.;While holding the card, approach the panel and press E or MMB to activate it.;|Training.16;;Все двери в запитанных комнатах открыты на ограниченное время! Поторопитесь!;All doors in powered rooms are open for a limited time! Hurry up!;|Training.17;;Двери скоро закроются. Поторопитесь!;Doors will close soon. Hurry up!;|Reports.Page1;f;"<b>ЭКСПЕРИМЕНТ №42-D 
 Отчёт №1  Доктора Тревора Оуэнса</b>
 Кому: Доктору Мартину Хендриксу, директору S.C.A.L.P. Lab.
 <line-height=50%> 
@@ -18,7 +26,7 @@ To: Dr. Martin Hendricks, Director of S.C.A.L.P. Lab.
  </line-height>
 <line-indent=8%> After the sixth specimen died, we performed an autopsy that allowed us to develop new gene therapy techniques to create hybrid cells. The primary focus right now is on trying to create hybrid tissue capable of regeneration.
 The experiment involved using <cspace=-0.09em> ███████████████</cspace> and<cspace=-0.09em> ████████</cspace>. The test subject <cspace=-0.09em> ██████</cspace> showed growth of new tissues similar to those in <cspace=-0.1em>██████ ,</cspace>  but their functionality was unpredictable, with the cells exhibiting abnormal activity. 
-This is exactly what happened with the fourth specimen, so we have preemptively administered the inhibitor serum.|"Reports.Page2;f;"<b>ЭКСПЕРИМЕНТ №42-D 
+This is exactly what happened with the fourth specimen, so we have preemptively administered the inhibitor serum.";|Reports.Page2;f;"<b>ЭКСПЕРИМЕНТ №42-D 
 Отчёт №2 Доктора Тревора Оуэнса</b>
 Кому: Доктору Мартину Хендриксу, директору S.C.A.L.P. Lab.
 <line-height=50%> 
@@ -38,7 +46,7 @@ To: Dr. Martin Hendricks, Director of S.C.A.L.P. Lab.
  </line-height>
 <line-indent=8%> Over the past few weeks, the seventh specimen has shown impressive growth rates. Its body length is currently 2 inches long.
 We are currently maintaining its development in a sealed chamber filled with <cspace=-0.1em> ██████.</cspace> solution. The specimen requires constant monitoring with strictly scheduled nutrient injections and maintenance of the proper temperature in the chamber.
-To facilitate this, I would like to request an expansion of the staff: we need at least two additional senior-level employees.|"Reports.Page3;t;"<b>ЭКСПЕРИМЕНТ №42-D 
+To facilitate this, I would like to request an expansion of the staff: we need at least two additional senior-level employees.";|Reports.Page3;f;"<b>ЭКСПЕРИМЕНТ №42-D 
 Отчёт №3 Доктора Тревора Оуэнса</b>
 Кому: Доктору Мартину Хендриксу, директору S.C.A.L.P. Lab.
 <line-height=50%> 
@@ -58,7 +66,7 @@ To: Dr. Martin Hendricks, Director of S.C.A.L.P. Lab.
  </line-height>
 <line-indent=8%> The seventh specimen continues to show remarkable growth rates: the emergence of limbs is observed. Surprisingly, forelimbs have appeared, distinguishing it from the amphibian tadpoles.
 At this stage, we begin adding <cspace=-0.1em> ██████</cspace> to the specimen's body to prevent the detrimental cell decay that occurred with the third specimen.
-Dr. Hendricks, I reiterate my request for an increase in the number of staff on the project: with the specimen's growth, we need more hands to conduct all the tests.|"Reports.Page4;f;"<b>ЭКСПЕРИМЕНТ №42-D
+Dr. Hendricks, I reiterate my request for an increase in the number of staff on the project: with the specimen's growth, we need more hands to conduct all the tests.";|Reports.Page4;f;"<b>ЭКСПЕРИМЕНТ №42-D
 Отчёт №4 Доктора Тревора Оуэнса</b>
 Кому: Доктору Мартину Хендриксу, директору S.C.A.L.P. Lab.
 <line-height=50%> 
@@ -78,7 +86,7 @@ To: Dr. Martin Hendricks, Director of S.C.A.L.P. Lab.
  </line-height>
 <line-indent=8%> The specimen has reached a length of 6 inches and has developed hind limbs. Behavioral changes are noticeable: the specimen is showing interest in what is happening in the lab.
 We have received your order to expedite the testing for transferring the specimen from the nutrient medium to open air. However, I insist that this is premature and may lead to the death of the specimen.
-The junior staff member you provided is not enough for us. Does the Board of Directors not understand that the success of our experiment depends, among other things, on a sufficient budget? Or do they have higher priorities?|"Reports.Page5;t;"<b>ЭКСПЕРИМЕНТ №42-D 
+The junior staff member you provided is not enough for us. Does the Board of Directors not understand that the success of our experiment depends, among other things, on a sufficient budget? Or do they have higher priorities?";|Reports.Page5;f;"<b>ЭКСПЕРИМЕНТ №42-D 
 Отчёт №5 Доктора Тревора Оуэнса</b>
 Кому: Доктору Мартину Хендриксу, директору S.C.A.L.P. Lab.
 <line-height=50%> 
@@ -96,7 +104,7 @@ To: Dr. Martin Hendricks, Director of S.C.A.L.P. Lab.
 </align>
  </line-height>
 <line-indent=8%> By order of the Board of Directors, we conducted a test of exposing the specimen to open air. The result was exactly as I had predicted: despite its growth, its internal organs are not yet ready to breathe air, and the skin surface needs to be surrounded by a <cspace=-0.1em> ██████.</cspace> Fortunately, we managed to rescue the sample in time and avoid losing several months of hard work.
-Dr. Hendricks, I am concerned about the Board's overall attitude toward this experiment: the constant refusals to allocate additional budget and the demands to expedite all tests call into question the Board's awareness of the project's potential.|"Reports.Page6;t;"<b>ЭКСПЕРИМЕНТ №42-D 
+Dr. Hendricks, I am concerned about the Board's overall attitude toward this experiment: the constant refusals to allocate additional budget and the demands to expedite all tests call into question the Board's awareness of the project's potential.";|Reports.Page6;f;"<b>ЭКСПЕРИМЕНТ №42-D 
 Отчёт №6 Доктора Тревора Оуэнса</b>
 Кому: Доктору Мартину Хендриксу, директору S.C.A.L.P. Lab.
 <line-height=50%> 
@@ -114,7 +122,7 @@ To: Dr. Martin Hendricks, Director of S.C.A.L.P. Lab.
 </align>
  </line-height>
 <line-indent=8%> We are observing significant changes in the structure of the specimen's skeleton, as seen in the X-ray images. Mainly, its spine has started to straighten, and it increasingly relies on its hind limbs while in its chamber.
-Dr. Hendricks, I have received information that the reason for the budget constraints on our project is that the Board of Directors is giving preference to our facility in <cspace=-0.1em> ██████.</cspace> If this is true, I would like to remind that the foundation of our organization has always been genetic engineering, not military products.|"Reports.Page7;t;"<b>ЭКСПЕРИМЕНТ №42-D 
+Dr. Hendricks, I have received information that the reason for the budget constraints on our project is that the Board of Directors is giving preference to our facility in <cspace=-0.1em> ██████.</cspace> If this is true, I would like to remind that the foundation of our organization has always been genetic engineering, not military products.";|Reports.Page7;f;"<b>ЭКСПЕРИМЕНТ №42-D 
 Отчёт №7 Доктора Тревора Оуэнса</b>
 Кому: Доктору Мартину Хендриксу, директору S.C.A.L.P. Lab.
 <line-height=50%> 
@@ -132,7 +140,7 @@ To: Dr. Martin Hendricks, Director of S.C.A.L.P. Lab.
 </align>
  </line-height>
 <line-indent=8%> At the current moment, the specimen is beginning to show noticeable changes in head structure compared to previous specimens at the corresponding stage of development. It is now evident that the addition of <cspace=-0.1em> ██████</cspace> cells to the organism affects not only the internal organs but also the external appearance.
-We expect to be able to repeat the open air exposure test the Board has been so insistent on in the near future. Moreover, I would like to request additional equipment due to the specimen's growth and the need to conduct more complex tests.|"Reports.Page8;t;"<b>ЭКСПЕРИМЕНТ №42-D 
+We expect to be able to repeat the open air exposure test the Board has been so insistent on in the near future. Moreover, I would like to request additional equipment due to the specimen's growth and the need to conduct more complex tests.";|Reports.Page8;f;"<b>ЭКСПЕРИМЕНТ №42-D 
 Отчёт №8 Доктора Тревора Оуэнса</b>
 Кому: Доктору Мартину Хендриксу, директору S.C.A.L.P. Lab.
 <line-height=50%> 
@@ -150,7 +158,7 @@ To: Dr. Martin Hendricks, Director of S.C.A.L.P. Lab.
 </align>
  </line-height>
 <line-indent=8%> Dr. Hendricks, I have received extremely outrageous information that the Board of Directors plans to reduce the budget for our project! And this after all my requests for additional budget? Such disregard is unacceptable! I plan to present a formal protest to the Board.
-Moreover, we have just successfully conducted a test of exposing the specimen to open air. The specimen has successfully adapted to function without the <cspace=-0.1em> ██████.</cspace> We have returned it to the solution-filled chamber so that it can continue to grow and develop steadily. However, the results are already evident.|"Reports.Page9;t;"<b>ЭКСПЕРИМЕНТ №42-D
+Moreover, we have just successfully conducted a test of exposing the specimen to open air. The specimen has successfully adapted to function without the <cspace=-0.1em> ██████.</cspace> We have returned it to the solution-filled chamber so that it can continue to grow and develop steadily. However, the results are already evident.";|Reports.Page9;f;"<b>ЭКСПЕРИМЕНТ №42-D
 Отчёт №9 Доктора Тревора Оуэнса</b>
 Кому: Доктору Мартину Хендриксу, директору S.C.A.L.P. Lab.
 <line-height=50%> 
@@ -168,7 +176,7 @@ To: Dr. Martin Hendricks, Director of S.C.A.L.P. Lab.
 </align>
  </line-height>
 <line-indent=8%> I am starting to doubt anyone from upper management reads my reports! And you continue to ignore my calls, Hendricks! How can I successfully operate in the company's best interests when I am kept in the dark?
-For your information, the specimen has significantly improved its cognitive abilities. It successfully passes all our tests, recognizes each member of the team, and follows everything happening in the laboratory with noticeable awareness. I wouldn't be surprised if it's thinking abilities ultimately exceed all our expectations.|"Reports.Page10;f;"<b>ЭКСПЕРИМЕНТ №42-D
+For your information, the specimen has significantly improved its cognitive abilities. It successfully passes all our tests, recognizes each member of the team, and follows everything happening in the laboratory with noticeable awareness. I wouldn't be surprised if it's thinking abilities ultimately exceed all our expectations.";|Reports.Page10;f;"<b>ЭКСПЕРИМЕНТ №42-D
 Отчёт №10 Доктора Тревора Оуэнса</b>
 Кому: Доктору Мартину Хендриксу, директору S.C.A.L.P. Lab.
 <line-height=50%> 
@@ -186,46 +194,46 @@ To: Dr. Martin Hendricks, Director of S.C.A.L.P. Lab.
 </align>
  </line-height>
 <line-indent=8%> Hendricks, I received a notification that two more employees are being transferred from the project to our facility in <cspace=-0.1em> ██████.</cspace> However, I have stopped being surprised by such treatment from the Board of Directors. You are all slowly and steadily ruining the potential of our best project.
-By the way, after the last test, when we subjected the sample to discharges of varying power, upon returning to the chamber, it persistently slammed against the glass, causing damage. The glass needs to be replaced, but you won't even allocate a budget for that, will you? Whatever, it’s no longer my concern, I am resigning.|"Audio.Sound1;t;"<b>Журнал наблюдений, доктор Хендрикс,
+By the way, after the last test, when we subjected the sample to discharges of varying power, upon returning to the chamber, it persistently slammed against the glass, causing damage. The glass needs to be replaced, but you won't even allocate a budget for that, will you? Whatever, it’s no longer my concern, I am resigning.";|Reports.Image1;f;;;|Reports.Image2;f;;;|Audio.Sound1;f;"<b>Журнал наблюдений, доктор Хендрикс,
  12 августа 1985 года, 21:45.</b>
  
 Объект H-17 проявляет признаки нейронной активности. Жизненные показатели стабилизируются в ожидаемых пределах. Первоначальные реакции на стимулы обнадеживают. Переходим ко второй фазе активационного протокола. Это может быть прорыв, которого мы так ждали.";"<b>Observation Log, Dr. Hendricks, August 12,
 1985, 9:45 PM.</b>
 
-Subject H-17 shows signs of neural activity. Vital signs are stabilizing within expected limits. Initial reactions to stimuli are promising. Moving on to phase two of the activation protocol. This could be the breakthrough we've been waiting for.|"Audio.Sound2;t;"<b>Технический журнал 302, говорит Алекс Мерфи.</b>
+Subject H-17 shows signs of neural activity. Vital signs are stabilizing within expected limits. Initial reactions to stimuli are promising. Moving on to phase two of the activation protocol. This could be the breakthrough we've been waiting for.";|Audio.Sound2;f;"<b>Технический журнал 302, говорит Алекс Мерфи.</b>
  
 Обнаружил нерегулярные энергетические колебания в секторе 4B. Оборудование вроде бы в порядке, но показания зашкаливают. Возможно, это сбой датчика, но я проведу полную диагностику для уверенности. Записываю для протокола.";"<b>Technical Log 302, Alex Murphy reporting.</b> 
 
-Detected irregular energy fluctuations in Sector 4B. Equipment seems fine, but the readings are off the charts. It could be a sensor glitch, but I'll run a full diagnostic to be sure. Logging for the record.|""         Audio.Sound3";t;"<b>Личный дневник, Эмили Росс.</b>
+Detected irregular energy fluctuations in Sector 4B. Equipment seems fine, but the readings are off the charts. It could be a sensor glitch, but I'll run a full diagnostic to be sure. Logging for the record.";|         Audio.Sound3;f;"<b>Личный дневник, Эмили Росс.</b>
 
  Не могу избавиться от чувства, что мы переходим черту. То, что мы делаем... слияние разных видов, нарушение законов природы. Я пришла в S.C.A.L.P. Lab, чтобы помогать людям, но теперь не уверена, что мы на верном пути.";"<b>Personal diary, Emily Ross.</b> 
 
-I can't shake the feeling we're crossing a line. What we're doing... blending different species, defying natural laws. I joined S.C.A.L.P. Lab to help humanity, but now I'm not sure we're on the right path.|""         Audio.Sound4";t;"<b>Журнал экспериментов 112, доктор Оуэнс.</b>
+I can't shake the feeling we're crossing a line. What we're doing... blending different species, defying natural laws. I joined S.C.A.L.P. Lab to help humanity, but now I'm not sure we're on the right path.";|         Audio.Sound4;f;"<b>Журнал экспериментов 112, доктор Оуэнс.</b>
 
  Объект H-17 продемонстрировал аномальные нейронные всплески во время последней стимуляции. Рефлекторные реакции превышают прогнозируемые модели. Корректирую параметры для следующей сессии. Необходимо внимательно наблюдать.";"<b>Experiment Log 112, Dr. Owens.</b> 
 
-Subject H-17 exhibited abnormal neural spikes during the last stimulation. Reflex reactions exceed predicted models. Adjusting parameters for the next session. Close monitoring required.|""         Audio.Sound5";t;"<b>Исследовательские заметки, доктор Уитман.</b> 
+Subject H-17 exhibited abnormal neural spikes during the last stimulation. Reflex reactions exceed predicted models. Adjusting parameters for the next session. Close monitoring required.";|         Audio.Sound5;f;"<b>Исследовательские заметки, доктор Уитман.</b> 
 
 Гибридные клетки демонстрируют удивительные регенеративные свойства. Если мы сможем использовать это, это перевернет мир трансплантологии. Именно ради этого мы и создали S.C.A.L.P. Lab. Я с оптимизмом жду следующей фазы.";"<b>Research Notes, Dr. Whitman.</b> 
 
-Hybrid cells are demonstrating remarkable regenerative properties. If we can harness this, it could revolutionize transplant medicine. This is why we created S.C.A.L.P. Lab. I’m optimistic about the next phase.|""         Audio.Sound6";t;"<b>Брифинг безопасности, капитан Хейс.</b>
+Hybrid cells are demonstrating remarkable regenerative properties. If we can harness this, it could revolutionize transplant medicine. This is why we created S.C.A.L.P. Lab. I’m optimistic about the next phase.";|         Audio.Sound6;f;"<b>Брифинг безопасности, капитан Хейс.</b>
 
 В связи с последними аномалиями усиливаем наблюдение во всех приоритетных секторах. Особое внимание уделите лабораториям 3 и 4. Сообщайте о любых необычных событиях немедленно. Наша задача — обеспечить безопасность объекта.";"<b>Security Briefing, Captain Hayes.</b> 
 
-Due to recent anomalies, we're reinforcing surveillance in all priority sectors. Pay extra attention to Labs 3 and 4. Report any unusual activity immediately. Our job is to secure this facility.|""         Audio.Sound7";t;"<b>Личный дневник, Эмили Росс.</b> 
+Due to recent anomalies, we're reinforcing surveillance in all priority sectors. Pay extra attention to Labs 3 and 4. Report any unusual activity immediately. Our job is to secure this facility.";|         Audio.Sound7;f;"<b>Личный дневник, Эмили Росс.</b> 
 
 Я приняла решение. Не могу больше здесь работать. Этические компромиссы слишком велики. Завтра подам заявление об уходе. Надеюсь, еще не поздно что-то изменить.";"<b>Personal diary, Emily Ross.</b> 
 
-I’ve made my decision. I can’t work here any longer. The ethical compromises are too great. Tomorrow, I’m submitting my resignation. I hope it’s not too late to change things.|""         Audio.Sound8";f;"<b>Журнал экспериментов 125, доктор Хендрикс.</b> 
+I’ve made my decision. I can’t work here any longer. The ethical compromises are too great. Tomorrow, I’m submitting my resignation. I hope it’s not too late to change things.";|         Audio.Sound8;f;"<b>Журнал экспериментов 125, доктор Хендрикс.</b> 
 
 Объект H-17 демонстрирует признаки развитых когнитивных реакций. Время отклика сокращается, а распознавание шаблонов улучшается. Это может значительно превзойти наши первоначальные прогнозы.";"<b>Experiment Log 125, Dr. Hendricks.</b> 
 
-Subject H-17 shows signs of advanced cognitive responses. Reaction times are shortening, and pattern recognition is improving. This far exceeds our initial projections.|""         Audio.Sound9";f;"<b>Служебная записка, Карен Ли.</b> 
+Subject H-17 shows signs of advanced cognitive responses. Reaction times are shortening, and pattern recognition is improving. This far exceeds our initial projections.";|         Audio.Sound9;f;"<b>Служебная записка, Карен Ли.</b> 
 
 Напоминаем, что все исследования в S.C.A.L.P. Lab строго конфиденциальны. Обсуждение вне круга уполномоченных лиц запрещено. Пожалуйста, при необходимости пересмотрите соглашение о неразглашении.";"<b>Memo, Karen Lee.</b> 
 
-Reminder that all research at S.C.A.L.P. Lab is strictly confidential. Discussion outside authorized circles is prohibited. Please review the non-disclosure agreement if necessary.|""         Audio.Sound_10";f;"<b>Отчет безопасности, офицер Перес.</b>
+Reminder that all research at S.C.A.L.P. Lab is strictly confidential. Discussion outside authorized circles is prohibited. Please review the non-disclosure agreement if necessary.";|         Audio.Sound_10;f;"<b>Отчет безопасности, офицер Перес.</b>
 
 Обнаружено отсутствие нескольких единиц оборудования в лаборатории 2B. Следов взлома нет. Провожу расследование на предмет внутренней ошибки или несанкционированного изъятия.";"<b>Security Report, Officer Perez.</b> 
 
-Noticed several pieces of equipment missing from Lab 2B. No signs of forced entry. Conducting an internal investigation to determine if it was an unauthorized removal.|;;;
+Noticed several pieces of equipment missing from Lab 2B. No signs of forced entry. Conducting an internal investigation to determine if it was an unauthorized removal.";|;;;;

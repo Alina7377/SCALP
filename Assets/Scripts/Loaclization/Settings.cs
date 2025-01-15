@@ -30,7 +30,10 @@ public   class Settings: MonoBehaviour
         FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
 
         StreamReader streamReader = new StreamReader(fileStream);
-        return streamReader.ReadToEnd();
+        string result = streamReader.ReadToEnd();
+
+        fileStream.Close();
+        return result;
     }
 
     /// <summary>

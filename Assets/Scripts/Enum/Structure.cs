@@ -14,3 +14,12 @@ public struct SRoomSpawnEnemyData
     public int MaxCountEnemyInRoom;
     public int CurrentCountEnemy;
 }
+
+public struct SProfileData
+{
+    public string UserName;
+    public float BestTime;
+    public float CountWin;
+    public float CountGame;
+    public float TimeToGame;
+}

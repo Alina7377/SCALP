@@ -14,10 +14,6 @@ public class LoaclizationText : MonoBehaviour
 
     private bool _isLoading = true; 
 
-    private void Awake()
-    {
-          
-    }
 
     private void Update()
     {

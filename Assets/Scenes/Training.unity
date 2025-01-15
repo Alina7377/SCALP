@@ -2153,6 +2153,54 @@ Transform:
   - {fileID: 1843804496}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &61195993
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 61195995}
+  - component: {fileID: 61195994}
+  m_Layer: 0
+  m_Name: StaticLightingSky
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &61195994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61195993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441482e8936e35048a1dffac814e3ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Profile: {fileID: 0}
+  m_StaticLightingSkyUniqueID: 0
+  m_StaticLightingCloudsUniqueID: 0
+  m_StaticLightingVolumetricClouds: 0
+--- !u!4 &61195995
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61195993}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &66234116
 GameObject:
   m_ObjectHideFlags: 0
@@ -26946,7 +26994,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
   m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 44.5
@@ -26990,7 +27038,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 4000
+  m_ColorTemperature: 20000
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 10}
   m_UseBoundingSphereOverride: 0
@@ -59250,7 +59298,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &1493306928
 Transform:
@@ -59341,7 +59389,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -62469,6 +62517,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PassageT (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204299056865525034, guid: 617da41dad9c38f4cbc87a87c32d899c,
+        type: 3}
+      propertyPath: m_Range
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 9204299056865525034, guid: 617da41dad9c38f4cbc87a87c32d899c,
         type: 3}
@@ -70867,6 +70920,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 61012673}
     m_Modifications:
+    - target: {fileID: 1250135172684924614, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_LightlayersMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252528525817860510, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047311190313855875, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083310011756974050, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226050094810613381, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3408574629368285748, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531562365450864063, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3944067124873655767, guid: 2f4e62a69c107c84786a2683588ef15b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -70917,10 +71005,60 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3944067124873655767, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257601973527240663, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5817550033248910530, guid: 2f4e62a69c107c84786a2683588ef15b,
         type: 3}
       propertyPath: m_Name
       value: PassageThrough (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152386755668432518, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_LightlayersMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468960716634837038, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 258
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496197815827179135, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 15.915493
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496197815827179135, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496197815827179135, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496197815827179135, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496197815827179135, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 0.30413815
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496197815827179135, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_Shadows.m_CullingMatrixOverride.e22
+      value: 13.33333
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -84353,3 +84491,4 @@ SceneRoots:
   - {fileID: 1248726384}
   - {fileID: 1024063258}
   - {fileID: 1401895702}
+  - {fileID: 61195995}

@@ -1,4 +1,7 @@
 language;0
 volume;0,09352505
 sensitivity;0,588045
+level;standart
+count_enemy;3
+count_enemy_corridor;2
 ;

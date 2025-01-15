@@ -55,6 +55,12 @@ public class EnemyManager : MonoBehaviour
             }
             CreateEnemy();
         }
+        else 
+        {
+            /// Добавить условие, что считываем данные только в том случае, если сложность игры отлична от стандартнйо
+            _countEnemy = int.Parse(Settings.Instance.GetParam("count_enemy"));
+            _countEnemyNoRoom = int.Parse(Settings.Instance.GetParam("count_enemy_corridor"));
+        }
     }
     // Добавьте метод Reset для очистки врагов и связанных данных
     public void Reset()

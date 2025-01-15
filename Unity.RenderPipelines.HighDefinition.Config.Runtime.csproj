@@ -419,6 +419,10 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>Assets\Plugins\MongoDB.Bson.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.5\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
       <Private>False</Private>
@@ -447,8 +451,20 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DnsClient">
+      <HintPath>Assets\Plugins\DnsClient.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>Assets\Plugins\MongoDB.Driver.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>Assets\Plugins\MongoDB.Driver.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

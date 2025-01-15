@@ -62,12 +62,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Audio\AudioTrigger.cs" />
     <Compile Include="Assets\Scripts\Interactions\DoorCodLock.cs" />
-    <Compile Include="Assets\Scripts\Loaclization\LibraryMenu.cs" />
     <Compile Include="Assets\Scripts\Procedural\Gen\CorridorPiece.cs" />
     <Compile Include="Assets\Scripts\Triggers\FinishTrigger.cs" />
     <Compile Include="Assets\Scripts\Procedural\Gen\Pathfinding.cs" />
     <Compile Include="Assets\Scripts\Triggers\TrainingTrigger.cs" />
+    <Compile Include="Assets\Scripts\UI\LiderBoard.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAI.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Player\Old\FirstPersonController.cs" />
     <Compile Include="Assets\Scripts\Procedural\Gen\GridCell.cs" />
     <Compile Include="Assets\Scripts\Player\Old\PlayerCharacter.cs" />
@@ -79,11 +80,14 @@
     <Compile Include="Assets\Scripts\Procedural\Gen\RoomAccessControl.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioFallingObject.cs" />
     <Compile Include="Assets\Scripts\Interactions\LampDubler.cs" />
+    <Compile Include="Assets\Scripts\Loaclization\Profile.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRoute.cs" />
     <Compile Include="Assets\Scripts\Loaclization\LoaclizationText.cs" />
     <Compile Include="Assets\Scripts\Loaclization\Settings.cs" />
+    <Compile Include="Assets\Scripts\UI\UserData.cs" />
     <Compile Include="Assets\Scripts\Audio\InteractSoundSource.cs" />
     <Compile Include="Assets\Scripts\Procedural\Gen\Doorway.cs" />
+    <Compile Include="Assets\Scripts\DataBase\DBManager.cs" />
     <Compile Include="Assets\Scripts\Interactions\SpawnCollectebel.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyDetected.cs" />
     <Compile Include="Assets\Scripts\InputSystem\PlayerControl.cs" />
@@ -94,18 +98,19 @@
     <Compile Include="Assets\Scripts\Interactions\LightBulb.cs" />
     <Compile Include="Assets\Scripts\Enum\Structure.cs" />
     <Compile Include="Assets\Scripts\Triggers\FlashlightEnemy.cs" />
+    <Compile Include="Assets\Scripts\UI\ButtonOpenCollect.cs" />
     <Compile Include="Assets\Scripts\Interactions\PlacementPoint.cs" />
     <Compile Include="Assets\Scripts\Interactions\PickableItem.cs" />
-    <Compile Include="Assets\Scripts\Loaclization\ButtonOpenCollect.cs" />
     <Compile Include="Assets\Scripts\Enum\Enumenators.cs" />
     <Compile Include="Assets\Scripts\Interactions\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Player\InputManager.cs" />
-    <Compile Include="Assets\Scripts\Loaclization\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\LiderPin.cs" />
     <Compile Include="Assets\Scripts\Interactions\InteractSecSystem.cs" />
     <Compile Include="Assets\Scripts\Procedural\Gen\GridManager.cs" />
     <Compile Include="Assets\Scripts\Events.cs" />
     <Compile Include="Assets\Scripts\Loaclization\LocalizationManager.cs" />
     <Compile Include="Assets\Scripts\Player\PersonHand.cs" />
+    <Compile Include="Assets\Scripts\UI\LibraryMenu.cs" />
     <Compile Include="Assets\Scripts\Interactions\Generator.cs" />
     <Compile Include="Assets\Scripts\Player\FirstPersonMovement.cs" />
   </ItemGroup>
@@ -475,12 +480,28 @@
       <HintPath>C:\Users\Alina\UnityProject\2022.3.30f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>Assets\Plugins\MongoDB.Bson.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.5\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DnsClient">
+      <HintPath>Assets\Plugins\DnsClient.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>Assets\Plugins\MongoDB.Driver.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>Assets\Plugins\MongoDB.Driver.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

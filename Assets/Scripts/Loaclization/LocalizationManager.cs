@@ -1,3 +1,4 @@
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +11,8 @@ public class LocalizationManager: MonoBehaviour
     private string[,] _localization;
     private string[] _languages = {"rus","eng"}; 
     private int _currentLenguage = 1;
+    private float _countDocuments;
+    private float _countOpenDocuments;
 
     public  event Action OnChangeLanguage;
 
@@ -28,7 +31,20 @@ public class LocalizationManager: MonoBehaviour
         DontDestroyOnLoad(gameObject);
         ResetCSV();        
         OnChangeLanguage?.Invoke();
-    }  
+        SetProgress();
+    }
+
+    public void SetProgress()
+    {
+        // Вычитаем 1, так как отбирается некое значение Null
+        _countDocuments = GetTagList("", false).Count - 1;
+        _countOpenDocuments = GetTagList("f", false).Count - 1;
+    }
+
+    public float GetProgress() 
+    {
+        return Mathf.Round((_countOpenDocuments / _countDocuments) * 100);
+    }
 
     public void ResetCSV() 
     {
@@ -53,7 +69,10 @@ public class LocalizationManager: MonoBehaviour
         FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
 
         StreamReader streamReader = new StreamReader(fileStream);
-        return streamReader.ReadToEnd();
+        string result = streamReader.ReadToEnd();
+
+        fileStream.Close();
+        return result;
     }
 
     public void SetLanguageSetting() 
@@ -103,7 +122,7 @@ public class LocalizationManager: MonoBehaviour
     /// Получение всех тегов, которые соответсвуют (equal=true) или не соответсвуют (equal=false) avail
     /// </summary>
     /// <param name="avail"> вид досутпности - f - не доступен, t - доступен, n - новый</param>
-    /// <param name="equal"> проверяется равнество парматру avail или не равенство</param>
+    /// <param name="equal"> проверяется равнество параметру avail или не равенство</param>
     /// <returns></returns>
     public List<string> GetTagList(string avail, bool equal)
     {
@@ -137,7 +156,11 @@ public class LocalizationManager: MonoBehaviour
     {
         for (int i = 1; i < _localization.GetLength(0); i++)
         {
-            if (_localization[i, 0].Contains(tag)) { _localization[i, 1] = avail; return; }
+            if (_localization[i, 0].Contains(tag)) 
+            {
+                _localization[i, 1] = avail;
+                return; 
+            }
         }
     }
 
