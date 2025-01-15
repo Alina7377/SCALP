@@ -247,7 +247,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
+  m_RenderingLayerMask: 259
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8539b0a6931816640b82bf38ea2d6a1b, type: 2}
@@ -869,10 +869,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2940982873189683306, guid: 7ef200cdb571e344ea454da0f0bf10f5,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 259
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7ef200cdb571e344ea454da0f0bf10f5,
         type: 3}
       propertyPath: m_Name
       value: Doorway
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767549808919732290, guid: 7ef200cdb571e344ea454da0f0bf10f5,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 259
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -970,6 +980,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3541166704253206851, guid: a4f960162455a684c863dd1922ffffcb,
         type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 259
+      objectReference: {fileID: 0}
+    - target: {fileID: -3541166704253206851, guid: a4f960162455a684c863dd1922ffffcb,
+        type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -987,6 +1002,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2312592332734318172, guid: a4f960162455a684c863dd1922ffffcb,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 259
       objectReference: {fileID: 0}
     - target: {fileID: -2312592332734318172, guid: a4f960162455a684c863dd1922ffffcb,
         type: 3}

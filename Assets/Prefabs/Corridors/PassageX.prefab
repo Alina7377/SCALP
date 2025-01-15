@@ -773,6 +773,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2455884122217657667, guid: 08b867fe6fa0f6144b605614144c1176,
         type: 3}
+      propertyPath: m_LightlayersMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455884122217657667, guid: 08b867fe6fa0f6144b605614144c1176,
+        type: 3}
       propertyPath: m_InnerSpotPercent
       value: 60
       objectReference: {fileID: 0}
@@ -781,15 +786,25 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 15.915493
       objectReference: {fileID: 0}
+    - target: {fileID: 2800847479148201402, guid: 08b867fe6fa0f6144b605614144c1176,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4787126600412046595, guid: 08b867fe6fa0f6144b605614144c1176,
         type: 3}
       propertyPath: m_Intensity
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4787126600412046595, guid: 08b867fe6fa0f6144b605614144c1176,
+        type: 3}
+      propertyPath: m_LightlayersMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5755444733198691367, guid: 08b867fe6fa0f6144b605614144c1176,
         type: 3}
       propertyPath: m_Range
-      value: 1.25
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 5755444733198691367, guid: 08b867fe6fa0f6144b605614144c1176,
         type: 3}
@@ -805,6 +820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ShadowRadius
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755444733198691367, guid: 08b867fe6fa0f6144b605614144c1176,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7503031582180949010, guid: 08b867fe6fa0f6144b605614144c1176,
         type: 3}
@@ -937,6 +957,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3d0d101d0572c4646ad6c50ace7306b7,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 258
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3d0d101d0572c4646ad6c50ace7306b7,
         type: 3}
       propertyPath: m_Name
@@ -1015,6 +1040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cor_4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291029679285201581, guid: 75f02088ea6834a48a7ef9c99b8eaa8e,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 258
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

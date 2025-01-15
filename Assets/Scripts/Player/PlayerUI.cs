@@ -34,6 +34,7 @@ public class PlayerUI : MonoBehaviour
     private List<AudioSource> _pauseAudios = new List<AudioSource>();
     private bool _lastVisible = true;
     private bool _isImpact = false;
+    private bool _isSaveProfilDate = false;
     
 
     // Добавляем ссылку на GridManager
@@ -96,6 +97,16 @@ public class PlayerUI : MonoBehaviour
             ShowFleshText("UI.LightClose");
     }
 
+    private void Rebase(bool isWin) 
+    {
+        if (_isSaveProfilDate == false)
+        {
+            Profile.Instance.SafeProfilDate(Time.time - GameMode.StartTime, isWin);
+            Profile.Instance.SafeCSV();
+            _isSaveProfilDate = true;
+        }
+    }
+
     public void StopAllSound()
     {
         if (_audios == null)
@@ -126,6 +137,7 @@ public class PlayerUI : MonoBehaviour
         {
             LocalizationManager.Instance.WriteAvailForTag(tag, newAvail);
         }
+        LocalizationManager.Instance.SetProgress();
     }
 
     /// <summary>
@@ -165,6 +177,7 @@ public class PlayerUI : MonoBehaviour
             SceneManager.LoadScene(2);
             return;
         }
+         Rebase(false);
         _playerControl.UI.PauseMenu.started -= context => Resume();
         _playerControl.Disable();
 
@@ -180,7 +193,7 @@ public class PlayerUI : MonoBehaviour
         {
             Debug.LogError("GridManager не найден!");
         }
-
+        _isSaveProfilDate = false;
         // Сбрасываем время игры
         Time.timeScale = 1;
 
@@ -201,6 +214,7 @@ public class PlayerUI : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        Rebase(false);
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
@@ -232,6 +246,7 @@ public class PlayerUI : MonoBehaviour
         StopAllSound();
         finishScreen.SetActive(true);
         winScreen.SetActive(true);
+        Rebase(true);
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -244,6 +259,7 @@ public class PlayerUI : MonoBehaviour
         StopAllSound();
         finishScreen.SetActive(true);
         deathScreen.SetActive(true);
+        Rebase(false);
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

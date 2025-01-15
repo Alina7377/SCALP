@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -33,13 +34,15 @@ public class LibraryMenu : MonoBehaviour
     [SerializeField] private SOCollections _repotsSO;
     [SerializeField] private SOCollections _audioSO;
 
-    [SerializeField] private List<string> _tags = new List<string>();
+    [Header("Отображение прогресса сбора документов")]
+    [SerializeField] private Text _progressText;
+    [SerializeField] private Image _progressImage;
+
     private List<GameObject> _buttons = new List<GameObject>();
-    private LoaclizationText _localizateText;
 
     private void Awake()
     {
-        _localizateText = _outText.GetComponent<LoaclizationText>();
+
     }
 
     private void SetPlayButtonImage(bool isPaly)        
@@ -61,19 +64,40 @@ public class LibraryMenu : MonoBehaviour
         }
     }
 
-    public void OpenLibrary()
+    private void ClearButtons()
     {
-        GameObject newButtonObject;
-        ButtonOpenCollect newButton;
-        List<string> tags = new List<string>();
+        foreach (GameObject button in _buttons)
+        {
+            Destroy(button);
+        }
+        _audioSource.Stop();
+        SetPlayButtonImage(false);
+        _buttons.Clear();
+    }
+
+    private void ShowProgressInfo() 
+    {
+        float progressPercent = LocalizationManager.Instance.GetProgress();
+        _progressText.text = LocalizationManager.Instance.GetTextForTag("Menu.ProgressDocum") + " " + progressPercent.ToString() + " / 100 %";
+        _progressImage.fillAmount = progressPercent / 100;
+    }
+
+    public void OpenLibrary(string type)
+    {
         _outText.gameObject.SetActive(false);
         _imageMin.gameObject.SetActive(false);
         _imageMax.gameObject.SetActive(false);
         _buttonPlay.gameObject.SetActive(false);
+        ClearButtons();
+        ShowProgressInfo();
+        GameObject newButtonObject;
+        ButtonOpenCollect newButton;
+        List<string> tags = new List<string>();
         tags = LocalizationManager.Instance.GetTagList("n", true);
         foreach (string tag in tags)
         {
-            newButtonObject =  GameObject.Instantiate(_prefabButton,_buttonsGroup);
+            if (!tag.Contains(type)) continue;
+            newButtonObject = GameObject.Instantiate(_prefabButton, _buttonsGroup);
             newButton = newButtonObject.GetComponent<ButtonOpenCollect>();
             newButton.SetLibrary(this);
             if (tag.Contains("Reports."))
@@ -86,6 +110,7 @@ public class LibraryMenu : MonoBehaviour
         tags = LocalizationManager.Instance.GetTagList("t", true);
         foreach (string tag in tags)
         {
+            if (!tag.Contains(type)) continue;
             newButtonObject = GameObject.Instantiate(_prefabButton, _buttonsGroup);
             newButton = newButtonObject.GetComponent<ButtonOpenCollect>();
             newButton.SetLibrary(this);
@@ -102,8 +127,9 @@ public class LibraryMenu : MonoBehaviour
         _audioSource.Stop();
         if (tag != "")
         {
+            Debug.Log(tag);
             _outText.gameObject.SetActive(true);
-            _localizateText.SetTag(tag);
+            _outText.text = LocalizationManager.Instance.GetTextForTag(tag);
         }
         if (tag.Contains("Image"))
         {
@@ -150,19 +176,5 @@ public class LibraryMenu : MonoBehaviour
             SetPlayButtonImage(true);
         }
     }
-
-
-    public void Back() 
-    {
-        foreach (GameObject button in _buttons)
-        {
-            Destroy(button);
-        }
-        _audioSource.Stop();
-        SetPlayButtonImage(false);
-        _buttons.Clear();
-        gameObject.SetActive(false);
-    }
-
 
 }

@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private TextAsset _setting;
-    [SerializeField] private TextAsset _textAsset;
     [SerializeField] private Slider _sliderVolume;
     [SerializeField] private Slider _sliderSensitiviti;
     [SerializeField] private GameObject _settingMenu;
@@ -23,6 +21,7 @@ public class MainMenu : MonoBehaviour
     {
         _topImageColor = topBackground.color;
         StartCoroutine(FlashText());
+        AudioListener.volume = float.Parse(Settings.Instance.GetParam("volume"));
     }
     
     private void Update()
@@ -105,6 +104,7 @@ public class MainMenu : MonoBehaviour
     {
         LocalizationManager.Instance.SafeCSV();
         Settings.Instance.SafeCSV();
+        //Profile.Instance.SafeCSV();
         Application.Quit();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
