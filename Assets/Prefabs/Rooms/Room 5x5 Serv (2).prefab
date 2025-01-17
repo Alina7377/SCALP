@@ -2687,7 +2687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b62f2631e296bc48b5a21474f1a504d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxCountCpllectebel: 1
+  _maxCountCpllectebel: 2
   _spawnPoints:
   - Point: {fileID: 4781220355345055446}
     IsAvail: 1

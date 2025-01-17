@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Procedural\Gen\GridCell.cs" />
     <Compile Include="Assets\Scripts\Player\Old\PlayerCharacter.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerUI.cs" />
+    <Compile Include="Assets\Scripts\Procedural\Gen\SavedObject.cs" />
     <Compile Include="Assets\Scripts\ScriptObject\SOCollections.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioStartLevel.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyManager.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Assets\Scripts\Audio\AudioFallingObject.cs" />
     <Compile Include="Assets\Scripts\Interactions\LampDubler.cs" />
     <Compile Include="Assets\Scripts\Loaclization\Profile.cs" />
+    <Compile Include="Assets\Scripts\UI\SettingLevel.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRoute.cs" />
     <Compile Include="Assets\Scripts\Loaclization\LoaclizationText.cs" />
     <Compile Include="Assets\Scripts\Loaclization\Settings.cs" />

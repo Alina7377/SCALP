@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -81,6 +82,7 @@ public class GridManager : MonoBehaviour
     public SOCollections _reportSO;
     public SOCollections _audioSO;
 
+    private SavedObject _savedObject;
     private EnemyManager _enemyManager;
     private List<SpawnCollectebel> _spawnConteiners = new List<SpawnCollectebel>();
 
@@ -98,6 +100,7 @@ public class GridManager : MonoBehaviour
     private List<GameObject> itemsPlacedRooms = new List<GameObject>();
     private List<string> itemsPlaced = new List<string>();
     private NavMeshSurface _navMeshSurface;
+  
 
     private struct LightState
     {
@@ -116,11 +119,14 @@ public class GridManager : MonoBehaviour
     private List<GameObject> instantiatedCorridors = new List<GameObject>();
     private List<GameObject> instantiatedItems = new List<GameObject>();
 
+    // Запуск проекта без генерации
+    private bool _noGenerate;
 
     void Start()
     {
         _navMeshSurface = GetComponent<NavMeshSurface>();
-
+        _savedObject = GetComponent<SavedObject>();
+        _enemyManager = GetComponent<EnemyManager>();
         if (!_isTraining)
         {
             InitializeLevel();
@@ -132,13 +138,16 @@ public class GridManager : MonoBehaviour
 
     void InitializeLevel()
     {
-        // Момент начала игры - запоминаем стартовое время
-        GameMode.StartTime = Time.time;
-        // Определяем, что начинаем играть 
-        Profile.Instance.SetProfilParam("count_game", (Profile.Instance.GetProfilParamF("count_game") + 1f).ToString());
+        if (Settings.Instance.GetParam("level") == "Standard")
+        {
+            // Момент начала игры - запоминаем стартовое время
+            GameMode.StartTime = Time.time;
+            // Определяем, что начинаем играть
+            Profile.Instance.SetProfilParam("count_game", (Profile.Instance.GetProfilParamF("count_game") + 1f).ToString());
+        }
+        // Очищаем старые данные
+        _savedObject.ResetObjectData();
 
-        _enemyManager = GetComponent<EnemyManager>();
-        
         GenerateGrid();
         PlaceRooms();
         ComputeDistanceToRooms();
@@ -154,7 +163,10 @@ public class GridManager : MonoBehaviour
         UpdateDoorMaterials();
         StartCoroutine(WaitToBake());
         Events.Instance.OnInteractGenerator += BakeSurfce;
-        Events.Instance.OnBalckOut += StartBlackOut;
+        Events.Instance.OnBalckOut += StartBlackOut;       
+
+        // Сохраняем позиции всех размещенных объектов
+        _savedObject.SafePicableObject();
     }
 
     private IEnumerator WaitToBake()
@@ -164,71 +176,89 @@ public class GridManager : MonoBehaviour
         _enemyManager.CreateEnemy();
     }
 
-    public void ResetLevel()
+    public void ResetLevel(bool generate)
     {
-        // Отписываемся от событий
-        Events.Instance.OnBalckOut -= StartBlackOut;
-        Events.Instance.OnInteractGenerator -= BakeSurfce;
-
-        // Останавливаем все корутины
-        StopAllCoroutines();
-
-        // Уничтожаем созданные клетки
-        foreach (GameObject cell in instantiatedCells)
+        if (generate)
         {
-            if (cell != null)
-                Destroy(cell);
-        }
-        instantiatedCells.Clear();
+            // Отписываемся от событий
+            Events.Instance.OnBalckOut -= StartBlackOut;
+            Events.Instance.OnInteractGenerator -= BakeSurfce;
 
-        // Уничтожаем созданные комнаты
-        foreach (GameObject room in instantiatedRooms)
+            // Останавливаем все корутины
+            StopAllCoroutines();
+
+            // Уничтожаем созданные клетки
+            foreach (GameObject cell in instantiatedCells)
+            {
+                if (cell != null)
+                    Destroy(cell);
+            }
+            instantiatedCells.Clear();
+
+            // Уничтожаем созданные комнаты
+            foreach (GameObject room in instantiatedRooms)
+            {
+                if (room != null)
+                    Destroy(room);
+            }
+            instantiatedRooms.Clear();
+
+            // Уничтожаем созданные коридоры
+            foreach (GameObject corridor in instantiatedCorridors)
+            {
+                if (corridor != null)
+                    Destroy(corridor);
+            }
+            instantiatedCorridors.Clear();
+
+            // Уничтожаем созданные предметы
+            foreach (GameObject item in instantiatedItems)
+            {
+                if (item != null)
+                    Destroy(item);
+            }
+            instantiatedItems.Clear();
+
+            // Уничтожаем врагов через EnemyManager
+            if (_enemyManager != null)
+            {
+                _enemyManager.Reset();
+            }
+
+            // Очищаем другие структуры данных
+            connectedPathCells.Clear();
+            cellPassages.Clear();
+            itemsPlaced.Clear();
+            itemsPlacedRooms.Clear();
+            allLights.Clear();
+            originalLightStates.Clear();
+            activePulsations.Clear();
+
+            // **Добавляем очистку списка _spawnConteiners**
+            _spawnConteiners.Clear(); // <-- Добавлено здесь
+
+            // Сбрасываем переменные
+            startRoomInstance = null;
+            finishRoomInstance = null;
+
+            // Реинициализируем уровень
+            InitializeLevel();
+            GameMode.Generate = true;
+        }
+        else
         {
-            if (room != null)
-                Destroy(room);
+            // Перемещаем все предметы по местам и восстанавливаем двери
+            _savedObject.LoadSaveData();
+            // Запускаем перезапуск там, где эот необходимо
+            Events.Instance.ReloadLevel();
+            GameMode.Generate = false;
+            // Уничтожаем врагов через EnemyManager
+            if (_enemyManager != null)
+            {
+                _enemyManager.DestroyAllEnemies();
+                _enemyManager.CreateEnemy();
+            }
         }
-        instantiatedRooms.Clear();
-
-        // Уничтожаем созданные коридоры
-        foreach (GameObject corridor in instantiatedCorridors)
-        {
-            if (corridor != null)
-                Destroy(corridor);
-        }
-        instantiatedCorridors.Clear();
-
-        // Уничтожаем созданные предметы
-        foreach (GameObject item in instantiatedItems)
-        {
-            if (item != null)
-                Destroy(item);
-        }
-        instantiatedItems.Clear();
-
-        // Уничтожаем врагов через EnemyManager
-        if (_enemyManager != null)
-        {
-            _enemyManager.Reset();
-        }
-
-        // Очищаем другие структуры данных
-        connectedPathCells.Clear();
-        cellPassages.Clear();
-        itemsPlaced.Clear();
-        itemsPlacedRooms.Clear();
-        allLights.Clear();
-        originalLightStates.Clear();
-        activePulsations.Clear();
-
-        // **Добавляем очистку списка _spawnConteiners**
-        _spawnConteiners.Clear(); // <-- Добавлено здесь
-
-        // Сбрасываем переменные
-        startRoomInstance = null;
-        finishRoomInstance = null;
-
-        // Реинициализируем уровень
-        InitializeLevel();
     }
 
     private void OnDisable()
@@ -267,6 +297,10 @@ public class GridManager : MonoBehaviour
         // Если кол-во неоткрытых объектов меньше заданного, то устанавливаем это число
         _reports = GetListForTag("Reports.", collectebelItems);
         _audios = GetListForTag("Audio.", collectebelItems);
+
+        if (Settings.Instance.GetParam("level") != "Standard")
+            _countCollectebelItems = int.Parse(Settings.Instance.GetParam("count_doc"));
+
         if (collectebelItems.Count<_countCollectebelItems)
             _countCollectebelItems = collectebelItems.Count;
         for (int i = 0; i < _countCollectebelItems; i++) 
@@ -313,24 +347,29 @@ public class GridManager : MonoBehaviour
             /// Оперделяем, что спавним и исключаем спавн одинаковых объектов
             indexItem = UnityEngine.Random.Range(0, _currentList.Count);
             currentTag = _currentList[indexItem];
+            
             // Чистим список
             _currentList.RemoveAt(indexItem); 
             /// Наконец, спавним самих объектов
             if (currentTag.Contains("Reports."))
             {
                 GameObject collectebelObject = GameObject.Instantiate(_reportSO.GetPrefab(), spawnPoint);
+                /// Запоминаем расположение объектов
+                _savedObject.SafeCollectebl(collectebelObject);
                 ReportCollectebel collec = collectebelObject.GetComponent<ReportCollectebel>();
                 collec.CollectibleType = CollectibleType.Reports;
                 collec.Tag = currentTag;
                 collec.Image = _reportSO.GetImageForTag(currentTag);
                 _spawnConteiners[indexRoom].SetLastSpawnType(CollectibleType.Reports);
                 _reports = _currentList;
-                Debug.Log("Объект " + currentTag + " типа " + CollectibleType.Reports + " размещен в комнате " + _spawnConteiners[indexRoom].gameObject.name);
+                Debug.Log("Объект " + currentTag + " типа " + CollectibleType.Reports + " размещен в комнате " + _spawnConteiners[indexRoom].gameObject.name);                
                 continue;
             }           
             if (currentTag.Contains("Audio."))
             {
                 GameObject collectebelObject = GameObject.Instantiate(_audioSO.GetPrefab(), spawnPoint);
+                /// Запоминаем расположение объектов
+                _savedObject.SafeCollectebl(collectebelObject);
                 ReportCollectebel collec = collectebelObject.GetComponent<ReportCollectebel>();
                 collec.CollectibleType = CollectibleType.AudioRecords;
                 collec.Tag = currentTag;
@@ -1341,6 +1380,7 @@ public class GridManager : MonoBehaviour
         if (finishRoomAccessControl != null)
         {
             finishRoomAccessControl.RequiredAccessLevel = finishRoomAccessLevel;
+            _savedObject.SafeDoorData(finishRoomAccessControl, 1, true);
             Debug.Log($"Комната {finishRoomInstance.name} закрыта на {finishRoomAccessControl.RequiredAccessLevel} ключ.");
         }
         else
@@ -1349,6 +1389,10 @@ public class GridManager : MonoBehaviour
         }
 
         int assignedAccessLevels = 1; // We have already assigned one access level to the finish room
+
+        // Устанавливаем кол-во закрытых  комнат
+        if (Settings.Instance.GetParam("level") != "Standard")
+            assignedAccessLevels = accessLevels.Length + 1 - int.Parse(Settings.Instance.GetParam("count_close_room"));
 
         for (int i = 0; assignedAccessLevels < accessLevels.Length && i < roomList.Count; i++)
         {
@@ -1362,6 +1406,7 @@ public class GridManager : MonoBehaviour
             if (accessControl != null)
             {
                 accessControl.RequiredAccessLevel = accessLevels[assignedAccessLevels - 1];
+                _savedObject.SafeDoorData(accessControl, 1, true);
                 Debug.Log($"Комната {room.name} закрыта на {accessControl.RequiredAccessLevel} ключ.");
                 assignedAccessLevels++;
             }
@@ -1404,12 +1449,16 @@ public class GridManager : MonoBehaviour
         ShuffleList(availableRooms);
 
         int roomsToDisablePower = 3;
+        if (Settings.Instance.GetParam("level") != "Standard")
+            roomsToDisablePower = int.Parse(Settings.Instance.GetParam("count_room_np"));
+        
 
         RoomAccessControl finishRoomAccessControl = finishRoomInstance.GetComponent<RoomAccessControl>();
         if (finishRoomAccessControl != null && finishRoomAccessControl.HasPower)
         {
             finishRoomAccessControl.HasPower = false;
             finishRoomAccessControl.NoNav();
+            _savedObject.SafeDoorData(finishRoomAccessControl, 0, false);
             Debug.Log($"Питание отключено в комнате {finishRoomInstance.name}.");
             roomsToDisablePower--;
         }
@@ -1428,6 +1477,7 @@ public class GridManager : MonoBehaviour
                 accessControl.HasPower = false;
                 // В отключенных комнатах блокируем дверь
                 accessControl.NoNav();
+                _savedObject.SafeDoorData(accessControl, 0, false);
                 Debug.Log($"Питание отключено в комнате {room.name}.");
                 roomsToDisablePower--;
             }
@@ -1506,9 +1556,19 @@ public class GridManager : MonoBehaviour
         // Перемешиваем комнаты с точками спауна
         ShuffleList(roomsWithSpawnPoints);
 
+        // Тоже не хорошо, но быстро
+        int countCard = 3;
+        if (Settings.Instance.GetParam("level") != "Standard")
+            countCard = int.Parse(Settings.Instance.GetParam("count_close_room")); 
+
         // Размещаем предметы
         for (int i = 0; i < itemsToPlace.Count; i++)
         {
+            // Очень топорно, но зато быстро: игнорируем не нужные карты
+            if ((i == 0 && countCard < 3) ||
+                (i == 1 && countCard < 2)) continue;
+
+
             GameObject item = itemsToPlace[i];
             GameObject room = roomsWithSpawnPoints[i];
 

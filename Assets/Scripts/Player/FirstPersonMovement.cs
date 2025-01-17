@@ -30,8 +30,12 @@ public class FirstPersonMovement : MonoBehaviour
     private bool _isJump = false;
     public bool _isBlockControl = true;
 
+    private Vector3 _startPosition;
+    private Quaternion _startRotation;
+
     void Awake()
     {
+        Events.Instance.OnReloadLevel += Reload;
         originalHeight = controller.height;
         _control = new PlayerControl();
         Walk();
@@ -43,6 +47,25 @@ public class FirstPersonMovement : MonoBehaviour
         _control.Player.Sneak.canceled += context => Walk();
         GameMode.FirstPersonMovement = this;
         _audioSource = GetComponent<AudioSource>();
+        _startPosition = transform.position;
+        _startRotation = transform.rotation;
+    }
+
+    private void Reload()
+    {
+        // Делаем имитацию смерти
+        gameObject.SetActive(false);
+
+        // Настриваем все параметры
+        transform.position = _startPosition;
+        transform.rotation = _startRotation;
+        originalHeight = controller.height;     
+        _isAlive = true;
+        gameObject.SetActive(true);
+        _control.Enable();
+        GameMode.PlayerUI.ChangeVisiblePayer(false);
+        GameMode.FirstPersonLook.AnBlockPlayerController();
+        Walk();
     }
 
     private void OnEnable()

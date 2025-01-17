@@ -278,6 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 175270002}
   - component: {fileID: 175270003}
+  - component: {fileID: 175270006}
   - component: {fileID: 175270005}
   - component: {fileID: 175270004}
   m_Layer: 0
@@ -465,6 +466,22 @@ MonoBehaviour:
     type: 3}
   _rooms: []
   _wayPointsNoroom: []
+--- !u!114 &175270006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175270001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12db8548ba7675849a304a4fad1e948c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefReport: {fileID: 8348929628816133742, guid: 1f092ea90a0611c44af4829062da0029,
+    type: 3}
+  _prefAudioRecord: {fileID: 8348929628816133742, guid: 30f81c0b104d6034698a138cfc143d07,
+    type: 3}
 --- !u!1 &204852581
 GameObject:
   m_ObjectHideFlags: 0

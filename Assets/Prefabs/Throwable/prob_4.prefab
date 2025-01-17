@@ -63,11 +63,10 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
+  m_RenderingLayerMask: 259
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 420fbbed40e3e33429cbbb76ee30b93e, type: 2}
-  - {fileID: 2100000, guid: fc1c098ad84940745a60b44fd96232f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

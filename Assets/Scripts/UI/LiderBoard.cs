@@ -28,7 +28,7 @@ public class LiderBoard : MonoBehaviour
     [SerializeField] private GameObject _liderGroup;
     [SerializeField] private GameObject _gamerProfile;
     [SerializeField] private GameObject _prefabPin;
-    [SerializeField] private int _topLider = 10;
+    [SerializeField] private int _topLider = 8;
     [SerializeField] private Text _infoConnection;
 
     private List<LiderPin> liderPins = new List<LiderPin>();
@@ -53,7 +53,7 @@ public class LiderBoard : MonoBehaviour
         _rating.text = "-";
         _bestTime.text = TimeFormat(Profile.Instance.GetProfilParamF("best_time"));
         _winCount.text = Profile.Instance.GetProfilParamSTR("count_win_game");
-        _gameCount.text = Profile.Instance.GetProfilParamSTR("count_game");
+        //_gameCount.text = Profile.Instance.GetProfilParamSTR("count_game");
         _timeToGame.text = TimeFormat(Profile.Instance.GetProfilParamF("time_to_game"));
         _progress.text = LocalizationManager.Instance.GetProgress().ToString() + "/100 %";
     }
@@ -82,10 +82,16 @@ public class LiderBoard : MonoBehaviour
             // Сортируем по времени
             minTime = 0;
             List<SProfileData> liders = new List<SProfileData>();
+            List< SProfileData> nullLid = new List<SProfileData>();
             while (records.Count > 0 /*|| liders.Count<top*/)
             {
                 foreach (var record in records)
                 {
+                    if (record.BestTime == 0)
+                    {                        
+                        nullLid.Add(record);
+                        continue;
+                    }
                     if (minTime == 0)
                     {
                         minTime = record.BestTime;
@@ -110,14 +116,15 @@ public class LiderBoard : MonoBehaviour
                             if (record.CountWin > lider.CountWin) lider = record;
                     }
                 }
+                //Debug.Log(lider.UserName + " " + lider.BestTime);
                 if (minTime != 0)
                 {
                     liders.Add(lider);
                     minTime = 0;
                     records.Remove(lider);
-                }
-                else
-                    records.Remove(lider);
+                }               
+                foreach(var nolid in nullLid)
+                    records.Remove(nolid);
             }
             // Перед выводом топа игроков, нужно найти нашего игрока и вывести его
             if (_profilPin != null)

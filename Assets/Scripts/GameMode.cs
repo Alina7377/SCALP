@@ -9,6 +9,7 @@ public static class GameMode
     private static EnemyManager _enemyManager;
     private static float _startTime;
     private static float _endTime;
+    private static bool _generate; // Генерировался новый уроаень или нет
 
     public static PersonHand PersonHand
     {
@@ -50,5 +51,11 @@ public static class GameMode
     {
         get { return _endTime; }
         set { _endTime = value; }
+    }
+
+    public static bool Generate
+    { 
+        get { return _generate; } 
+        set { _generate = value; } 
     }
 }

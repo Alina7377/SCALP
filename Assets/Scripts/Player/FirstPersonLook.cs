@@ -42,6 +42,13 @@ public class FirstPersonLook : MonoBehaviour
         _playerControl.Disable();
     }
 
+    public void AnBlockPlayerController()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        _playerControl.Enable();
+    }
+
     private void OnEnable()
     {
         _playerControl.Enable();

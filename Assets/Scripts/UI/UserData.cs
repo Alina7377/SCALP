@@ -81,7 +81,6 @@ public class UserData : MonoBehaviour
 
         _resultText.text = "OK";
         await _dbManager.UpdateNiknameData(_inputNikname.text);
-        Debug.Log("Данные обновлены");
         Profile.Instance.SetProfilParam("nikname", _inputNikname.text);
         Profile.Instance.SafeCSV();
         _board.DisplayProfilInfo();

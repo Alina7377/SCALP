@@ -9,6 +9,7 @@ public class RoomAccessControl : MonoBehaviour
     [SerializeField] private bool hasPower = true; // По умолчанию комнаты имеют питание
 
     public event Action NoPower;
+    public event Action OnLockDoor;
 
     private void Start()
     {
@@ -42,6 +43,12 @@ public class RoomAccessControl : MonoBehaviour
     {
         NoPower?.Invoke();
     }
+
+    public void LockDoor() 
+    {
+        OnLockDoor?.Invoke();
+    }
+
     public string GetTagNameRoom()
     {
         return _tagNameRoom;

@@ -13,6 +13,10 @@ public class DoorControl : MonoBehaviour, IInteractable
     [SerializeField] private GameObject _door2;
     [SerializeField] private LoaclizationText _roomName1;
     [SerializeField] private LoaclizationText _roomName2;
+    [SerializeField] private SpriteRenderer _roomRenderer1;
+    [SerializeField] private SpriteRenderer _roomRenderer2;
+    [SerializeField] private Sprite _onEnerge;
+    [SerializeField] private Sprite _offEnerge;
     [SerializeField] private AudioClip _doorOpen;
     [SerializeField] private AudioClip _doorClose;
     [SerializeField] private AudioSource _doorAudioSource;
@@ -26,11 +30,17 @@ public class DoorControl : MonoBehaviour, IInteractable
     private void Awake()
     {
         _roomAccessControl.NoPower += BlockDoors;
+        _roomAccessControl.OnLockDoor += LockDoor;
         if (_roomAccessControl.GetTagNameRoom() != "")
         {
             _roomName1.SetTag(_roomAccessControl.GetTagNameRoom());
             _roomName2.SetTag(_roomAccessControl.GetTagNameRoom());
         }
+    }
+
+    private void LockDoor()
+    {
+        _isLock = true;
     }
 
     private void Start()
@@ -78,6 +88,8 @@ public class DoorControl : MonoBehaviour, IInteractable
         _roomName2.SetTag("UI.NoPower");
         _roomName1.GetComponent<TextMeshPro>().color = Color.red;
         _roomName2.GetComponent<TextMeshPro>().color = Color.red;
+        _roomRenderer1.sprite = _offEnerge;
+        _roomRenderer2.sprite = _offEnerge;
     }
 
     private void AnBlockDoors()
@@ -88,6 +100,8 @@ public class DoorControl : MonoBehaviour, IInteractable
         _roomName2.SetTag(_roomAccessControl.GetTagNameRoom());
         _roomName1.GetComponent<TextMeshPro>().color = Color.white;
         _roomName2.GetComponent<TextMeshPro>().color = Color.white;
+        _roomRenderer1.sprite = _onEnerge;
+        _roomRenderer2.sprite = _onEnerge;
     }
 
     /// <summary>
