@@ -6,6 +6,7 @@ using UnityEngine;
 public class Events : MonoBehaviour
 {
     public event Action OnInteractGenerator;
+    public event Action OnReloadLevel;
     public event Action<bool> OnBalckOut;
     public event Action<bool> OnOpenDoor;
 
@@ -48,5 +49,14 @@ public class Events : MonoBehaviour
     public void ChangeOpenDoor(bool state)
     {
         OnOpenDoor?.Invoke(state);
+    }
+
+
+    /// <summary>
+    /// Перезапуск уровня без генерации
+    /// </summary>
+    public void ReloadLevel() 
+    {
+        OnReloadLevel?.Invoke();
     }
 }

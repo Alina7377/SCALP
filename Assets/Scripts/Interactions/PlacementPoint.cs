@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,12 @@ public class PlacmentPoint : MonoBehaviour, IInteractable
     private void Awake()
     {
         _interactable = _interactObject.GetComponent<IInteractable>();
+        Events.Instance.OnReloadLevel += Reload;
+    }
+
+    private void Reload()
+    {
+        audioSource.Stop();
     }
 
     private IEnumerator ShowText()
@@ -103,7 +110,7 @@ public class PlacmentPoint : MonoBehaviour, IInteractable
 
         // Устанавливаем родителя для объекта
         item.transform.SetParent(transform);
-        item.tag = "Untagged"; // Сбрасываем тег
+        item.layer = 0; // Сбрасываем тег
         _interactable.Interact(); // Взаимодействуем с объектом
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,16 @@ using UnityEngine;
 public class Generator : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject _batareyPreview;
+
+    private void Start()
+    {
+        Events.Instance.OnReloadLevel += Reload;
+    }
+
+    private void Reload()
+    {
+        _batareyPreview.SetActive(true);
+    }
 
     public void Interact()
     {

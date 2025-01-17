@@ -24,6 +24,8 @@ public class EnemyManager : MonoBehaviour
     {
         _enemys = new List<EnemyAI>();
         GameMode.EnemyManager = this;
+
+
         if (_rooms.Count > 0 || _wayPointsNoroom.Count > 0) _isTrainingLevel = true;
         // Если комнаты заданы вручную, значит спавним вручную
         if (_isTrainingLevel)
@@ -57,9 +59,11 @@ public class EnemyManager : MonoBehaviour
         }
         else 
         {
-            /// Добавить условие, что считываем данные только в том случае, если сложность игры отлична от стандартнйо
-            _countEnemy = int.Parse(Settings.Instance.GetParam("count_enemy"));
-            _countEnemyNoRoom = int.Parse(Settings.Instance.GetParam("count_enemy_corridor"));
+            if (Settings.Instance.GetParam("level") != "Standard")
+            {
+                _countEnemy = int.Parse(Settings.Instance.GetParam("count_enemy"));
+                //_countEnemyNoRoom = _countEnemy / int.Parse(Settings.Instance.GetParam("count_enemy_corridor"));
+            }
         }
     }
     // Добавьте метод Reset для очистки врагов и связанных данных

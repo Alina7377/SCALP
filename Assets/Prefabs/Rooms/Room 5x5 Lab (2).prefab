@@ -2544,7 +2544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b62f2631e296bc48b5a21474f1a504d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxCountCpllectebel: 1
+  _maxCountCpllectebel: 2
   _spawnPoints:
   - Point: {fileID: 8104531459320886666}
     IsAvail: 1
@@ -4892,11 +4892,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7576262596164126909, guid: ade794e95f379f648ad7d96cc78ddcd5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8944
+      objectReference: {fileID: 0}
     - target: {fileID: 7811483991665781868, guid: ade794e95f379f648ad7d96cc78ddcd5,
         type: 3}
       propertyPath: _roomAccessControl
       value: 
       objectReference: {fileID: 1803496552423113124}
+    - target: {fileID: 8004212186356745367, guid: ade794e95f379f648ad7d96cc78ddcd5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8944
+      objectReference: {fileID: 0}
     - target: {fileID: 9098067977163288951, guid: ade794e95f379f648ad7d96cc78ddcd5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -10154,11 +10164,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7576262596164126909, guid: ade794e95f379f648ad7d96cc78ddcd5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.896
+      objectReference: {fileID: 0}
     - target: {fileID: 7811483991665781868, guid: ade794e95f379f648ad7d96cc78ddcd5,
         type: 3}
       propertyPath: _roomAccessControl
       value: 
       objectReference: {fileID: 1803496552423113124}
+    - target: {fileID: 8004212186356745367, guid: ade794e95f379f648ad7d96cc78ddcd5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.896
+      objectReference: {fileID: 0}
     - target: {fileID: 9098067977163288951, guid: ade794e95f379f648ad7d96cc78ddcd5,
         type: 3}
       propertyPath: m_AnchoredPosition.y

@@ -23,3 +23,9 @@ public struct SProfileData
     public float CountGame;
     public float TimeToGame;
 }
+
+public struct SObgectTransform 
+{
+    public Vector3 Position;
+    public Quaternion Rotation;
+}

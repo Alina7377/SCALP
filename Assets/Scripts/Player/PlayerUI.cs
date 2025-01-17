@@ -15,6 +15,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject deathScreen;
     [SerializeField] private GameObject _settingMenu;
+    [SerializeField] private GameObject _impactObject;
+    [SerializeField] private Image _visibleImage;
     [SerializeField] private Slider _sliderVolume;
     [SerializeField] private Slider _sliderSensitiviti;
     [SerializeField] private Animation _animate;    
@@ -35,7 +37,8 @@ public class PlayerUI : MonoBehaviour
     private bool _lastVisible = true;
     private bool _isImpact = false;
     private bool _isSaveProfilDate = false;
-    
+    private List<bool> _startParamActivaeObjects = new List<bool>();
+    private Color _imageColor;
 
     // Добавляем ссылку на GridManager
     private GridManager _gridManager;
@@ -53,12 +56,56 @@ public class PlayerUI : MonoBehaviour
 
     private void Start()
     {
+        SetStartParam();
         _isImpact = true;
         _animate.clip = _clips[3];
         _animate.Play();
         Events.Instance.OnBalckOut += BlackOut;
         Events.Instance.OnInteractGenerator += HasPower;
         Events.Instance.OnOpenDoor += OpenAllDoors;
+        Events.Instance.OnReloadLevel += ReloadPlayer;
+
+    }
+
+    private void SetStartParam()
+    {
+        _startParamActivaeObjects.Clear();
+        _startParamActivaeObjects.Add(pauseScreen.activeSelf);
+        _startParamActivaeObjects.Add(finishScreen.activeSelf);
+        _startParamActivaeObjects.Add(_panel.activeSelf);
+        _startParamActivaeObjects.Add(_centerText.gameObject.activeSelf);
+        _startParamActivaeObjects.Add(winScreen.activeSelf);
+        _startParamActivaeObjects.Add(deathScreen.activeSelf);
+        _startParamActivaeObjects.Add(_settingMenu.activeSelf);
+        _startParamActivaeObjects.Add(_showTextMax.gameObject.activeSelf);
+        _startParamActivaeObjects.Add(_showTextMin.gameObject.activeSelf);
+        _startParamActivaeObjects.Add(_impactObject.activeSelf);
+        _imageColor = _visibleImage.color;
+    }
+
+    private void ReloadStartParam() 
+    {
+        pauseScreen.SetActive(_startParamActivaeObjects[0]);
+        finishScreen.SetActive(_startParamActivaeObjects[1]);
+        _panel.SetActive(_startParamActivaeObjects[2]);
+        _centerText.gameObject.SetActive(_startParamActivaeObjects[3]);
+        winScreen.SetActive(_startParamActivaeObjects[4]);
+        deathScreen.SetActive(_startParamActivaeObjects[5]);
+        _settingMenu.SetActive(_startParamActivaeObjects[6]);
+        _showTextMax.gameObject.SetActive(_startParamActivaeObjects[7]);
+        _showTextMin.gameObject.SetActive (_startParamActivaeObjects[8]);
+        _impactObject.gameObject.SetActive(_startParamActivaeObjects[9]);
+        _visibleImage.color = _imageColor;
+    }
+
+    private void ReloadPlayer()
+    {
+        ReloadStartParam();
+        _isImpact = false;
+        _animate.clip = _clips[3];
+        _animate.Play();
+        _playerControl.Enable();
+        
     }
 
     private void OnDisable()
@@ -99,7 +146,7 @@ public class PlayerUI : MonoBehaviour
 
     private void Rebase(bool isWin) 
     {
-        if (_isSaveProfilDate == false)
+        if (_isSaveProfilDate == false && Settings.Instance.GetParam("level") == "Standard" && GameMode.Generate)
         {
             Profile.Instance.SafeProfilDate(Time.time - GameMode.StartTime, isWin);
             Profile.Instance.SafeCSV();
@@ -115,6 +162,7 @@ public class PlayerUI : MonoBehaviour
         }
         foreach (var audio in _audios)
         {
+            if (audio != null)
             if (audio.isPlaying)
             {
                 audio.Pause();
@@ -126,7 +174,10 @@ public class PlayerUI : MonoBehaviour
     public void PlayPausedAudios()
     { 
         foreach (var audio in _pauseAudios)
-            { audio.UnPause(); }
+            { 
+            if (audio != null)
+                audio.UnPause(); 
+        }
         _pauseAudios.Clear(); // Очищаем список после воспроизведения
     }
 
@@ -166,7 +217,7 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    public void Restart()
+    public void Restart(bool generate)
     {
         ReplaceAvail("grab", "f");
         if (_isTraining)
@@ -187,7 +238,7 @@ public class PlayerUI : MonoBehaviour
         // Вызываем метод ResetLevel() у GridManager
         if (_gridManager != null)
         {
-            _gridManager.ResetLevel();
+            _gridManager.ResetLevel(generate);
         }
         else
         {

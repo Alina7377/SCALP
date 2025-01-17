@@ -17,7 +17,7 @@ public class TrainingTrigger : MonoBehaviour
         if (!_isHasCondition || (_isHasCondition && CheackCondition()) && !GameMode.PlayerUI.IsPlayingAnimator())
         {
             GameMode.PlayerUI.ShowFleshText(_tag);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
