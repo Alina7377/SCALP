@@ -1824,6 +1824,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1527372548}
+        m_TargetAssemblyTypeName: LiderBoard, Assembly-CSharp
+        m_MethodName: ClearPlayerData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 348940614}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -3101,7 +3113,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 302.06186, y: -384.88242}
   m_SizeDelta: {x: 604.1237, y: 769.76483}
-  m_Pivot: x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &453565358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6919,8 +6931,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -255.19995, y: -378.37}
-  m_SizeDelta: {x: 1054.458, y: 69.533325}
+  m_AnchoredPosition: {x: -294.72406, y: -452.38336}
+  m_SizeDelta: {x: 987.0693, y: 58.9626}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &954914652
 MonoBehaviour:

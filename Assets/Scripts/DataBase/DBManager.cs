@@ -15,47 +15,47 @@ public class DBManager : MonoBehaviour
     private IMongoCollection<BsonDocument> _collection;
     private IMongoCollection<Person> _collectionPerson;
     private char _recordSeparator = '|';
-   // private bool _isConnect;
+    // private bool _isConnect;
 
     private async void Awake()
     {
-      // ConnectBaseAsync();
-       _database = _clientDB.GetDatabase("SCALP");
-       _collection = _database.GetCollection<BsonDocument>("PlayerProfiles");
-       _collectionPerson = _database.GetCollection<Person>("PlayerProfiles");
+        // ConnectBaseAsync();
+        _database = _clientDB.GetDatabase("SCALP");
+        _collection = _database.GetCollection<BsonDocument>("PlayerProfiles");
+        _collectionPerson = _database.GetCollection<Person>("PlayerProfiles");
     }
 
-   /* private async void  ConnectBaseAsync() 
-    {
-        await Task.Run(ConectionBase);
+    /* private async void  ConnectBaseAsync() 
+     {
+         await Task.Run(ConectionBase);
 
-        if (_isConnect)
-        {
-            // Каждый раз, как мы попадаем в меню - отправляем данные на сервер            
-            _database = _clientDB.GetDatabase("SCALP");
-            _collection = _database.GetCollection<BsonDocument>("PlayerProfiles");
-            SaveProfileData();
-        }
-    }
+         if (_isConnect)
+         {
+             // Каждый раз, как мы попадаем в меню - отправляем данные на сервер            
+             _database = _clientDB.GetDatabase("SCALP");
+             _collection = _database.GetCollection<BsonDocument>("PlayerProfiles");
+             SaveProfileData();
+         }
+     }
 
-    private void ConectionBase() 
-    {
-        try
-        {
-            _clientDB = new MongoClient("mongodb+srv://SCALP_Lab:777777sem@cluster0.8rp7p.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
-            _isConnect = true;
-        }
-        catch
-        {
-            Debug.Log("Нет подключения у");
-            _isConnect = false;
-        }
-    }*/
-             
+     private void ConectionBase() 
+     {
+         try
+         {
+             _clientDB = new MongoClient("mongodb+srv://SCALP_Lab:777777sem@cluster0.8rp7p.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+             _isConnect = true;
+         }
+         catch
+         {
+             Debug.Log("Нет подключения у");
+             _isConnect = false;
+         }
+     }*/
+
     /// <summary>
     /// Удаление всех данных из бд
     /// </summary>
-    public async void RemoveAllData() 
+    public async void RemoveAllData()
     {
         var allRecords = _collection.FindAsync(new BsonDocument());
         var recordAwaited = await allRecords;
@@ -67,6 +67,16 @@ public class DBManager : MonoBehaviour
        
     }
 
+    public async void RemoveDataForName(string name) 
+    {
+        var allRecords = _collection.FindAsync(new BsonDocument { { "Name", name } });
+        var recordAwaited = await allRecords;
+
+        foreach (var record in recordAwaited.ToList())
+        {
+            _collection.DeleteOne(record);
+        }
+    }
 
     private Person GetProfilData() 
     {

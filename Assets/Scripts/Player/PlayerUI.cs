@@ -14,9 +14,12 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private LoaclizationText _centerText;
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject deathScreen;
+    [SerializeField] private GameObject _endTraningScreen;
     [SerializeField] private GameObject _settingMenu;
     [SerializeField] private GameObject _impactObject;
     [SerializeField] private GameObject _restartNGScreen;
+    [SerializeField] private Button _restart;
+    [SerializeField] private Button _restartNG;
     [SerializeField] private Image _visabilityIcon;
     [SerializeField] private Image _visibleImage;
     [SerializeField] private Image _impactImage;
@@ -85,6 +88,7 @@ public class PlayerUI : MonoBehaviour
         _startParamActivaeObjects.Add(_showTextMax.gameObject.activeSelf);
         _startParamActivaeObjects.Add(_showTextMin.gameObject.activeSelf);
         _startParamActivaeObjects.Add(_impactObject.activeSelf);
+        _startParamActivaeObjects.Add(_endTraningScreen.activeSelf);
         _visabilityIconColor = _visabilityIcon.color;
         _imageColor = _visibleImage.color;
         _impactImageColor = _impactImage.color;
@@ -103,6 +107,7 @@ public class PlayerUI : MonoBehaviour
         _showTextMax.gameObject.SetActive(_startParamActivaeObjects[7]);
         _showTextMin.gameObject.SetActive (_startParamActivaeObjects[8]);
         _impactObject.gameObject.SetActive(_startParamActivaeObjects[9]);
+        _endTraningScreen.gameObject.SetActive(_startParamActivaeObjects[10]);
         _visabilityIcon.color = _visabilityIconColor;
         _visibleImage.color = _imageColor;
         _impactImage.color = _impactImageColor;
@@ -287,6 +292,15 @@ public class PlayerUI : MonoBehaviour
         StopAllSound();
         Time.timeScale = 0;
         pauseScreen.SetActive(true);
+        if (_isTraining)
+        {
+            _restart.enabled = false;
+            _restart.image.color = Color.gray;
+            _restart.GetComponentInChildren<Text>().color = Color.gray;
+            _restartNG.enabled = false;
+            _restartNG.GetComponentInChildren<Text>().color = Color.gray;
+            _restartNG.image.color = Color.gray;
+        }
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         _playerControl.Enable();
@@ -310,7 +324,10 @@ public class PlayerUI : MonoBehaviour
         ReplaceAvail("grab", "n");        
         StopAllSound();
         finishScreen.SetActive(true);
-        winScreen.SetActive(true);
+        if (_isTraining)
+            _endTraningScreen.SetActive(true);
+        else
+            winScreen.SetActive(true);
         Rebase(true);
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;

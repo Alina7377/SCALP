@@ -68,11 +68,7 @@ public class UserData : MonoBehaviour
             return;
         }
         var list = _dbManager.CheackRecord(_inputNikname.text);
-        var record = await list;
-        foreach (var item in record)
-        {
-            Debug.Log("Найдена запись " + item);
-        }
+        var record = await list;       
         if (record.Count > 0)
         {
             _resultText.text = LocalizationManager.Instance.GetTextForTag("Lid.UsingNikname");
@@ -86,7 +82,6 @@ public class UserData : MonoBehaviour
         _board.DisplayProfilInfo();
         _board.LoadLiderBoard();
         gameObject.SetActive(false);
-    }
-
+    }   
    
 }
