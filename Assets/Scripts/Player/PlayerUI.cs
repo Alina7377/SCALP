@@ -16,6 +16,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject deathScreen;
     [SerializeField] private GameObject _settingMenu;
     [SerializeField] private GameObject _impactObject;
+    [SerializeField] private GameObject _restartNGScreen;
     [SerializeField] private Image _visabilityIcon;
     [SerializeField] private Image _visibleImage;
     [SerializeField] private Image _impactImage;
@@ -297,6 +298,8 @@ public class PlayerUI : MonoBehaviour
         _playerControl.Disable();
         if (pauseScreen !=null)
             pauseScreen.SetActive(false);
+        _settingMenu.SetActive(false);
+        _restartNGScreen.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         PlayPausedAudios();
