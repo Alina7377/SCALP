@@ -186,9 +186,13 @@ public class LiderBoard : MonoBehaviour
         }
     }
 
-    public void ResetProfil() 
+
+    public void ClearPlayerData()
     {
+        _dbManager.RemoveDataForName(Profile.Instance.GetProfilParamSTR("nikname"));
         Profile.Instance.ResetProfilData();
         DisplayProfilInfo();
+        LoadLiderBoard();
+        
     }
 }

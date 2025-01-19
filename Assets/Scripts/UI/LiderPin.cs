@@ -26,7 +26,10 @@ public class LiderPin : MonoBehaviour
         _userName.text = record.UserName;
         _bestTime.text = TimeFormat(record.BestTime);
         _countWin.text = record.CountWin.ToString();
-        _winRate.text = MathF.Round(record.CountWin / record.CountGame * 100).ToString();
+        if (record.CountGame == 0)
+            _winRate.text = "0";
+        else
+            _winRate.text = MathF.Round(record.CountWin / record.CountGame * 100).ToString();
     }
    
 }
