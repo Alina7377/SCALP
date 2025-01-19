@@ -16,7 +16,9 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject deathScreen;
     [SerializeField] private GameObject _settingMenu;
     [SerializeField] private GameObject _impactObject;
+    [SerializeField] private Image _visabilityIcon;
     [SerializeField] private Image _visibleImage;
+    [SerializeField] private Image _impactImage;
     [SerializeField] private Slider _sliderVolume;
     [SerializeField] private Slider _sliderSensitiviti;
     [SerializeField] private Animation _animate;    
@@ -39,6 +41,8 @@ public class PlayerUI : MonoBehaviour
     private bool _isSaveProfilDate = false;
     private List<bool> _startParamActivaeObjects = new List<bool>();
     private Color _imageColor;
+    private Color _impactImageColor;
+    private Color _visabilityIconColor;
 
     // Добавляем ссылку на GridManager
     private GridManager _gridManager;
@@ -80,7 +84,10 @@ public class PlayerUI : MonoBehaviour
         _startParamActivaeObjects.Add(_showTextMax.gameObject.activeSelf);
         _startParamActivaeObjects.Add(_showTextMin.gameObject.activeSelf);
         _startParamActivaeObjects.Add(_impactObject.activeSelf);
+        _visabilityIconColor = _visabilityIcon.color;
         _imageColor = _visibleImage.color;
+        _impactImageColor = _impactImage.color;
+
     }
 
     private void ReloadStartParam() 
@@ -95,7 +102,9 @@ public class PlayerUI : MonoBehaviour
         _showTextMax.gameObject.SetActive(_startParamActivaeObjects[7]);
         _showTextMin.gameObject.SetActive (_startParamActivaeObjects[8]);
         _impactObject.gameObject.SetActive(_startParamActivaeObjects[9]);
+        _visabilityIcon.color = _visabilityIconColor;
         _visibleImage.color = _imageColor;
+        _impactImage.color = _impactImageColor;
     }
 
     private void ReloadPlayer()
@@ -105,7 +114,9 @@ public class PlayerUI : MonoBehaviour
         _animate.clip = _clips[3];
         _animate.Play();
         _playerControl.Enable();
-        
+        _lastVisible = false;
+
+
     }
 
     private void OnDisable()
@@ -345,11 +356,15 @@ public class PlayerUI : MonoBehaviour
     public void ChangeVisiblePayer(bool isVisible)
     {        
     if (_lastVisible != isVisible && !_isImpact)
-        {         
-            if (isVisible )
+        {
+            if (isVisible)
+            {
                 _animate.clip = _clips[0];
+            }
             else
+            {
                 _animate.clip = _clips[1];
+            }
             _lastVisible = isVisible;
             _animate.Play();
          }

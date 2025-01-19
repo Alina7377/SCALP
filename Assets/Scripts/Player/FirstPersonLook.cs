@@ -28,7 +28,13 @@ public class FirstPersonLook : MonoBehaviour
         // Убрать потом и раскоменнтировать ниже
         _mouseSensitivity = _mouseMaxSensitivity;
         _lights = new List<Light>();
+        Events.Instance.OnReloadLevel += Reset;
         ChangeSettings();
+    }
+
+    private void Reset()
+    {
+        _lights.Clear();
     }
 
     // Временное решение, пока нет UI
