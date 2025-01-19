@@ -21,6 +21,15 @@ public class TrainingTrigger : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if ((_isHasCondition && CheackCondition()) && !GameMode.PlayerUI.IsPlayingAnimator())
+        {
+            GameMode.PlayerUI.ShowFleshText(_tag);
+            gameObject.SetActive(false);
+        }
+    }
+
     private bool CheackCondition() 
     {
         PickableItem pickableItem = GameMode.PersonHand.GetGrabObject();
