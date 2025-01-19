@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 3949122131467364490}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: VerticalHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 6096709654414409074}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: HorizontallHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 8073897169072416174}
   m_Layer: 0
   m_Name: Wall (1)
-  m_TagString: Untagged
+  m_TagString: VerticalHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4
