@@ -1,9 +1,9 @@
 language;0
 volume;0,5873318
 sensitivity;0,588045
-level;Custom
-count_enemy;3
-count_room_np;2
-count_close_room;2
-count_doc;8
+level;Standard
+count_enemy;1
+count_room_np;1
+count_close_room;1
+count_doc;1
 ;

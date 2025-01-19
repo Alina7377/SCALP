@@ -28,10 +28,10 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.anyKeyDown && _isFlashing)
         {
-            StopAllCoroutines(); // Îñòàíàâëèâàåì ìèãàíèå òåêñòà
+            StopAllCoroutines();
             StartCoroutine(FadeOutTopImage());
             flashingText.gameObject.SetActive(false);
-            _isFlashing = false; // Âûêëþ÷àåì ÷òîáû êîðóòèíà íå ïîâòîðÿëà àíèìàöèþ
+            _isFlashing = false;
         }
     }
 

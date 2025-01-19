@@ -33,6 +33,8 @@ public class SettingLevel : MonoBehaviour
     [SerializeField] private Text _outCountCloseRoom;
     [SerializeField] private Text _outCountDoc;
     [SerializeField] private Text _outCountEnemy;
+    [SerializeField] private Text _outDescriptionDifficultyCustom;
+    [SerializeField] private Text _outDescriptionDifficultyStandart;
 
     [Header("Текстовые поля описания")]
     [SerializeField] private Text _infoCountRoomNP;
@@ -89,6 +91,11 @@ public class SettingLevel : MonoBehaviour
             _outCountEnemy.color = _activeColor;
 
             _infoCountEnemy.color = _activeColor;
+
+
+
+            _outDescriptionDifficultyCustom.gameObject.SetActive(true);
+            _outDescriptionDifficultyStandart.gameObject.SetActive(false);
         }
         else
         {
@@ -136,6 +143,10 @@ public class SettingLevel : MonoBehaviour
 
             _infoCountEnemy.color = _noActiveColor;
 
+
+
+            _outDescriptionDifficultyCustom.gameObject.SetActive(false);
+            _outDescriptionDifficultyStandart.gameObject.SetActive(true);
         }
     }
 
