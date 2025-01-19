@@ -3311,7 +3311,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Menu.Settings
+  m_Text: Menu.SettingsMin
 --- !u!114 &8380271003968609833
 MonoBehaviour:
   m_ObjectHideFlags: 0
