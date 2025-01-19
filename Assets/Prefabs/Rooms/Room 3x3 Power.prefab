@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8629089218395699195}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: VerticalHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 7918239872322878801}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: VerticalHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 2468739143280915078}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: HorizontallHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 137094216027623974}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: HorizontallHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 3443477136150371462}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: HorizontallHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 4267529618714727175}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: HorizontallHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1033,7 +1033,7 @@ GameObject:
   - component: {fileID: 6541089263167326544}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: HorizontallHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1138,7 +1138,7 @@ GameObject:
   - component: {fileID: 6120628712257581041}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: VerticalHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1244,7 +1244,7 @@ GameObject:
   - component: {fileID: 2119123361293653943}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: HorizontallHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1361,7 +1361,7 @@ GameObject:
   - component: {fileID: 6925139879150059840}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: HorizontallHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1497,7 +1497,7 @@ GameObject:
   - component: {fileID: 6149014229250694791}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: VerticalHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1602,7 +1602,7 @@ GameObject:
   - component: {fileID: 7484752024569559584}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: VerticalHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1707,7 +1707,7 @@ GameObject:
   - component: {fileID: 4195582328865419592}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: HorizontallHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1898,7 +1898,7 @@ GameObject:
   - component: {fileID: 5645786824006312905}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: HorizontallHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2003,7 +2003,7 @@ GameObject:
   - component: {fileID: 3142993242966427412}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: VerticalHolst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\UI\SettingLevel.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRoute.cs" />
     <Compile Include="Assets\Scripts\Loaclization\LoaclizationText.cs" />
+    <Compile Include="Assets\Scripts\Player\ScrachMove.cs" />
     <Compile Include="Assets\Scripts\Loaclization\Settings.cs" />
     <Compile Include="Assets\Scripts\UI\UserData.cs" />
     <Compile Include="Assets\Scripts\Audio\InteractSoundSource.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Assets\Scripts\Enum\Structure.cs" />
     <Compile Include="Assets\Scripts\Triggers\FlashlightEnemy.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonOpenCollect.cs" />
+    <Compile Include="Assets\Scripts\Player\ColliderScratch.cs" />
     <Compile Include="Assets\Scripts\Interactions\PlacementPoint.cs" />
     <Compile Include="Assets\Scripts\Interactions\PickableItem.cs" />
     <Compile Include="Assets\Scripts\Enum\Enumenators.cs" />

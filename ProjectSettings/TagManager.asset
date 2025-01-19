@@ -10,6 +10,8 @@ TagManager:
   - Take
   - Interact
   - Place
+  - VerticalHolst
+  - HorizontallHolst
   layers:
   - Default
   - TransparentFX

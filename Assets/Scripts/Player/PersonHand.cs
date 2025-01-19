@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PersonHand : MonoBehaviour
@@ -10,6 +12,10 @@ public class PersonHand : MonoBehaviour
     [SerializeField] private float _pickUpDistance;
     [SerializeField] private float _throwForce;
     [SerializeField] private LayerMask _layerMask;
+    [Header("Настройки для царапанья")]
+    [SerializeField] private GameObject _scrach;
+    [SerializeField] private LayerMask _layerMaskScrach;
+    [SerializeField] private float _scrachDistance;
 
     private PlayerControl _control;
     private GameObject _hitObject;
@@ -19,15 +25,99 @@ public class PersonHand : MonoBehaviour
     private Vector3 _startScaleGrabObj = Vector3.zero;
     private Dictionary<AccessCardColor, bool> _inventaryCard = new Dictionary<AccessCardColor, bool>();
     //private List<AccessCardColor> _r;
+    private float _offsetVertical = 0.04f;
 
     private void Awake()
     {
         _control = new PlayerControl();
         _control.Player.Interact.started += context => Interaction();
         _control.Player.Throw.started += context => ThrowObject();
+        _control.Player.Throw.started += context => CreateScrach();
         _control.Player.Drop.started += context => DropObject();
         _inventaryCard.Add(AccessCardColor.None,true);
         GameMode.PersonHand = this;
+    }
+
+    private void CreateScrach()
+    {
+        if (_grabObject != null) return;
+        RaycastHit hit;
+        Ray ray = new Ray(_cameraTransform.position, _cameraTransform.forward);
+        if (Physics.Raycast(ray, out hit, _scrachDistance, _layerMaskScrach))
+        {
+            if (hit.transform.gameObject.tag == "VerticalHolst" || hit.transform.gameObject.tag == "HorizontallHolst")
+            {
+                // Повторот во круг оси (пригодиться)
+                Vector3 direct = NormolizeVector(transform.position, hit.point);
+                Vector3 position = hit.point;
+                Quaternion quaternion;
+                if (hit.transform.gameObject.tag == "VerticalHolst")
+                {
+                    if (math.abs(direct.x) > math.abs(direct.z) && 
+                        math.abs(direct.x) - math.abs(direct.z) > 0.5 || CheackRayForWall(direct.x, hit.collider.gameObject))
+                    {
+                        // Костыль для деври
+                        if (hit.collider.gameObject.layer != 3)
+                            if (direct.x < 0)
+                                position.x = position.x - _offsetVertical;
+                            else position.x = position.x + _offsetVertical;
+                        else
+                            if (direct.x < 0)
+                            position.x = position.x - _offsetVertical / 2.1f;
+                        else position.x = position.x + _offsetVertical / 2.1f;
+                        quaternion = Quaternion.AngleAxis(90, Vector3.up);
+                    }
+                    else
+                    {
+                        // Костыль для деври
+                        if (hit.collider.gameObject.layer != 3)
+                            if (direct.z < 0)
+                                position.z = position.z - _offsetVertical;
+                            else position.z = position.z + _offsetVertical;
+                        else
+                            if (direct.z < 0)
+                               position.z = position.z - _offsetVertical /2.1f;
+                           else position.z = position.z + _offsetVertical /2.1f;
+                        quaternion = Quaternion.AngleAxis(0, Vector3.up);
+                    }
+                }
+                else
+                {
+                    position.y = position.y + 0.006f;
+                    quaternion = Quaternion.AngleAxis(90, Vector3.right);
+                }
+                GameObject gameObject = Instantiate(_scrach, position, quaternion);
+                gameObject.transform.SetParent(hit.collider.transform);
+                ScrachMove scrachMove = gameObject.GetComponent<ScrachMove>();
+                scrachMove.StartCheack(hit.collider.gameObject);
+            }
+            else return;
+        }
+    }
+
+    private bool CheackRayForWall(float  directX, GameObject hitObj) 
+    {
+        Vector3 newDirect = Vector3.zero;
+        if (directX < 0)
+            newDirect.x = -1;
+        else
+            newDirect.x = 1;
+        RaycastHit hit;
+        Ray ray = new Ray(_cameraTransform.position, newDirect);
+        if (Physics.Raycast(ray, out hit, _scrachDistance, _layerMaskScrach))
+        {
+            if (hit.collider.gameObject == hitObj)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private Vector3 NormolizeVector(Vector3 origin, Vector3 derection) 
+    {
+        float distance = Vector3.Distance(origin, derection);
+        return (derection - origin) / distance;
     }
 
     private void Update()
@@ -163,8 +253,14 @@ public class PersonHand : MonoBehaviour
     }
 
     private void ThrowObject() 
-    { 
-        if (_grabObject == null) return;
+    {
+        Debug.LogWarning("Попытка создать объект на  " + _hitObject);
+        if (_grabObject == null)
+            if (_hitObject != null && (_hitObject.tag == "VerticalHolst" || _hitObject.tag == "HorizontallHolst"))
+            {
+                GameObject gameObject = Instantiate(_scrach, _hitObject.transform.position, new Quaternion(0,90,0,0));
+            }
+            else return;
         _grabObject.layer = 8;
         _grabObject.transform.SetParent(null);
         _grabObject.transform.localScale = _startScaleGrabObj;
