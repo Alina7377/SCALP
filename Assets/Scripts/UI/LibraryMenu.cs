@@ -15,6 +15,8 @@ public class LibraryMenu : MonoBehaviour
     [SerializeField] private TMP_Text _outText;
     [SerializeField] private Image _imageMin;
     [SerializeField] private Image _imageMax;
+    [SerializeField] private Animator _imageAudio;
+
     [SerializeField] private Button _buttonPlay;
 
     [Header("Спрайты для кнопки Play")]
@@ -39,10 +41,22 @@ public class LibraryMenu : MonoBehaviour
     [SerializeField] private Image _progressImage;
 
     private List<GameObject> _buttons = new List<GameObject>();
+    private bool _isPlayAudio = false;
 
     private void Awake()
     {
 
+    }
+
+    private void Update()
+    {
+        if (_isPlayAudio && !_audioSource.isPlaying)
+        {
+            _audioSource.Pause();
+            SetPlayButtonImage(false);
+            _imageAudio.SetBool("IsPlay", false);
+            _isPlayAudio = false;
+        }
     }
 
     private void SetPlayButtonImage(bool isPaly)        
@@ -87,6 +101,7 @@ public class LibraryMenu : MonoBehaviour
         _outText.gameObject.SetActive(false);
         _imageMin.gameObject.SetActive(false);
         _imageMax.gameObject.SetActive(false);
+        _imageAudio.gameObject.SetActive(false);
         _buttonPlay.gameObject.SetActive(false);
         ClearButtons();
         ShowProgressInfo();
@@ -136,6 +151,7 @@ public class LibraryMenu : MonoBehaviour
             _imageMax.sprite = _repotsSO.GetImageForTag(tag);
             _imageMax.gameObject.SetActive(true);
             _imageMin.gameObject.SetActive(false);
+            _imageAudio.gameObject.SetActive(false);
             _buttonPlay.gameObject.SetActive(false);
             return;
         }
@@ -145,6 +161,7 @@ public class LibraryMenu : MonoBehaviour
             _imageMin.preserveAspect = true;
             _imageMax.gameObject.SetActive(false);
             _imageMin.gameObject.SetActive(true);
+            _imageAudio.gameObject.SetActive(false);
             _buttonPlay.gameObject.SetActive(false);
             return;
         }
@@ -152,9 +169,10 @@ public class LibraryMenu : MonoBehaviour
         {
             _audioSource.clip = _audioSO.GetAudioForTag(tag);
             _imageMin.sprite  = _audioSO.GetImageForTag(tag);
-            _imageMin.preserveAspect = true;
+            _imageAudio.gameObject.SetActive(true);
+            _imageAudio.SetBool("IsPlay", false);
             _imageMax.gameObject.SetActive(false);
-            _imageMin.gameObject.SetActive(true);
+            _imageMin.gameObject.SetActive(false);
             _buttonPlay.gameObject.SetActive(true);
             SetPlayButtonImage(false);
             return;
@@ -169,11 +187,15 @@ public class LibraryMenu : MonoBehaviour
         {
             _audioSource.Pause();
             SetPlayButtonImage(false);
+            _imageAudio.SetBool("IsPlay", false);
+            _isPlayAudio = false;
         }
         else 
         {
             _audioSource.Play();
             SetPlayButtonImage(true);
+            _imageAudio.SetBool("IsPlay", true);
+            _isPlayAudio = true;
         }
     }
 
