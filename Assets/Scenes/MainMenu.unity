@@ -1962,6 +1962,7 @@ MonoBehaviour:
   _outText: {fileID: 2017753684}
   _imageMin: {fileID: 1837505038}
   _imageMax: {fileID: 812677101}
+  _imageAudio: {fileID: 903698138}
   _buttonPlay: {fileID: 482632018}
   _passPlay: {fileID: 21300000, guid: badf017c8fc2c634393b939783c24ffe, type: 3}
   _acctPlay: {fileID: 21300000, guid: 48b030607f73af44dbdf911083aabf5c, type: 3}
@@ -2876,8 +2877,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 302.05948, y: -384.88544}
-  m_SizeDelta: {x: 604.11896, y: 769.7709}
+  m_AnchoredPosition: {x: 302.03464, y: -384.91614}
+  m_SizeDelta: {x: 604.0693, y: 769.8323}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &453565358
 MonoBehaviour:
@@ -5490,6 +5491,7 @@ GameObject:
   - component: {fileID: 812677100}
   - component: {fileID: 812677102}
   - component: {fileID: 812677101}
+  - component: {fileID: 812677103}
   m_Layer: 5
   m_Name: OutImageMax
   m_TagString: Untagged
@@ -5536,7 +5538,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8eb86d285f211b24a92216f2feae9f2d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5554,6 +5556,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812677099}
   m_CullTransparentMesh: 1
+--- !u!95 &812677103
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812677099}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &813580469
 GameObject:
   m_ObjectHideFlags: 0
@@ -6154,7 +6177,7 @@ Animator:
   m_GameObject: {fileID: 903698133}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 487a02279fab56c418dc97ceb9c1f20e, type: 2}
+  m_Controller: {fileID: 9100000, guid: e576634b605f3c24680f6dbf3f6ce9f1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7509,7 +7532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1206691332
 RectTransform:
   m_ObjectHideFlags: 0

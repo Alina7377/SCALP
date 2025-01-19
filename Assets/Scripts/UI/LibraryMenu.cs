@@ -101,6 +101,7 @@ public class LibraryMenu : MonoBehaviour
         _outText.gameObject.SetActive(false);
         _imageMin.gameObject.SetActive(false);
         _imageMax.gameObject.SetActive(false);
+        _imageAudio.gameObject.SetActive(false);
         _buttonPlay.gameObject.SetActive(false);
         ClearButtons();
         ShowProgressInfo();
