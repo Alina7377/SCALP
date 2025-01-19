@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,14 @@ public class SavedObject : MonoBehaviour
     private List<GameObject> _collectebleObjects = new List<GameObject>();
     private Vector3 _playerPosition;
     private Quaternion _playerRotation;
+    private int _countScrach = 100;
+    private List<GameObject> _listScrach = new List<GameObject>();
 
+
+    private void Awake()
+    {
+        GameMode.SavedObject = this;
+    }
     /// <summary>
     ///  Перемещение подбираемых предметов по метсам
     /// </summary>
@@ -54,6 +62,15 @@ public class SavedObject : MonoBehaviour
     {
         GameMode.FirstPersonMovement.transform.position = _playerPosition;
         GameMode.FirstPersonMovement.transform.rotation = _playerRotation;
+    }
+
+    private void ClearScrech()
+    {
+        foreach (var item in _listScrach)
+        {
+            Destroy(item);
+        }
+        _listScrach.Clear();
     }
 
 
@@ -120,6 +137,18 @@ public class SavedObject : MonoBehaviour
         LoadPicableObgect();
         CreateCollectebleObject();
         SetDoorAcces();
+        ClearScrech();
+    }
+
+   
+    public void AddScrach(GameObject newScrach) 
+    {
+        _listScrach.Add(newScrach);
+        if (_listScrach.Count > _countScrach)
+        {
+            Destroy(_listScrach[0]);
+            _listScrach.RemoveAt(0);
+        }
     }
 
     

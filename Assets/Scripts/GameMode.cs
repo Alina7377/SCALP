@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public static class GameMode
 {
@@ -7,6 +9,7 @@ public static class GameMode
     private static PlayerUI _playerUI;
     private static FirstPersonMovement _personMovement;
     private static EnemyManager _enemyManager;
+    private static SavedObject _savedObject;
     private static float _startTime;
     private static float _endTime;
     private static bool _generate; // Генерировался новый уроаень или нет
@@ -41,6 +44,12 @@ public static class GameMode
         set { _enemyManager = value; }
     }
 
+    public static SavedObject SavedObject
+    {
+        get { return _savedObject; }
+        set { _savedObject = value; }
+    }
+
     public static float StartTime
     { 
         get { return _startTime; } 
@@ -58,4 +67,6 @@ public static class GameMode
         get { return _generate; } 
         set { _generate = value; } 
     }
+
+   
 }
