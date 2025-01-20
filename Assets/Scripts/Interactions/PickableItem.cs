@@ -12,6 +12,11 @@ public class PickableItem : MonoBehaviour, IInteractable
         Events.Instance.OnReloadLevel += Reload;
     }
 
+    private void OnDisable()
+    {
+        Events.Instance.OnReloadLevel -= Reload;
+    }
+
     private void Reload()
     {
         gameObject.layer = 8;

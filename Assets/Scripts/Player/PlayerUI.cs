@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,6 +18,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject _endTraningScreen;
     [SerializeField] private GameObject _settingMenu;
     [SerializeField] private GameObject _impactObject;
+    [SerializeField] private GameObject _image1;
     [SerializeField] private GameObject _restartNGScreen;
     [SerializeField] private Button _restart;
     [SerializeField] private Button _restartNG;
@@ -75,6 +77,14 @@ public class PlayerUI : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        Events.Instance.OnBalckOut -= BlackOut;
+        Events.Instance.OnInteractGenerator -= HasPower;
+        Events.Instance.OnOpenDoor -= OpenAllDoors;
+        Events.Instance.OnReloadLevel -= ReloadPlayer;
+    }
+
     private void SetStartParam()
     {
         _startParamActivaeObjects.Clear();
@@ -89,6 +99,7 @@ public class PlayerUI : MonoBehaviour
         _startParamActivaeObjects.Add(_showTextMin.gameObject.activeSelf);
         _startParamActivaeObjects.Add(_impactObject.activeSelf);
         _startParamActivaeObjects.Add(_endTraningScreen.activeSelf);
+        _startParamActivaeObjects.Add(_image1.activeSelf);
         _visabilityIconColor = _visabilityIcon.color;
         _imageColor = _visibleImage.color;
         _impactImageColor = _impactImage.color;
@@ -108,6 +119,7 @@ public class PlayerUI : MonoBehaviour
         _showTextMin.gameObject.SetActive (_startParamActivaeObjects[8]);
         _impactObject.gameObject.SetActive(_startParamActivaeObjects[9]);
         _endTraningScreen.gameObject.SetActive(_startParamActivaeObjects[10]);
+        _image1.SetActive(_startParamActivaeObjects[11]);
         _visabilityIcon.color = _visabilityIconColor;
         _visibleImage.color = _imageColor;
         _impactImage.color = _impactImageColor;
@@ -117,8 +129,6 @@ public class PlayerUI : MonoBehaviour
     {
         ReloadStartParam();
         _isImpact = false;
-        _animate.clip = _clips[3];
-        _animate.Play();
         _playerControl.Enable();
         _lastVisible = false;
 

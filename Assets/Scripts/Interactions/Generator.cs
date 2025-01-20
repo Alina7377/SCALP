@@ -12,6 +12,10 @@ public class Generator : MonoBehaviour, IInteractable
         Events.Instance.OnReloadLevel += Reload;
     }
 
+    private void OnDisable()
+    {
+        Events.Instance.OnReloadLevel -= Reload;
+    }
     private void Reload()
     {
         _batareyPreview.SetActive(true);

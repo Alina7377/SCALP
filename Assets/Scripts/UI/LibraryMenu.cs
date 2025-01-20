@@ -12,6 +12,7 @@ public class LibraryMenu : MonoBehaviour
 {
     [Header("Вывод информации")]
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioSource _mutSound;
     [SerializeField] private TMP_Text _outText;
     [SerializeField] private Image _imageMin;
     [SerializeField] private Image _imageMax;
@@ -42,16 +43,19 @@ public class LibraryMenu : MonoBehaviour
 
     private List<GameObject> _buttons = new List<GameObject>();
     private bool _isPlayAudio = false;
+    private float _valumeMutSound;
 
     private void Awake()
     {
-
+        _valumeMutSound = _mutSound.volume;
     }
 
     private void Update()
     {
         if (_isPlayAudio && !_audioSource.isPlaying)
         {
+            // _mutSound.UnPause();
+            _mutSound.volume = _valumeMutSound;
             _audioSource.Pause();
             SetPlayButtonImage(false);
             _imageAudio.SetBool("IsPlay", false);
@@ -185,6 +189,8 @@ public class LibraryMenu : MonoBehaviour
     {
         if (_audioSource.isPlaying)
         {
+            _mutSound.volume = _valumeMutSound;
+            // _mutSound.UnPause();
             _audioSource.Pause();
             SetPlayButtonImage(false);
             _imageAudio.SetBool("IsPlay", false);
@@ -192,6 +198,8 @@ public class LibraryMenu : MonoBehaviour
         }
         else 
         {
+             _mutSound.volume = 0.25f;
+           // _mutSound.Pause();
             _audioSource.Play();
             SetPlayButtonImage(true);
             _imageAudio.SetBool("IsPlay", true);
