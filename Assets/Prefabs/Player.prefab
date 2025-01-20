@@ -1758,7 +1758,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.2, y: 0.15, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1742181097318609873}
@@ -3905,7 +3905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3885649075293191054
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4750,6 +4750,7 @@ MonoBehaviour:
   _endTraningScreen: {fileID: 5550877819180750081}
   _settingMenu: {fileID: 4855378851091495168}
   _impactObject: {fileID: 236300253601046555}
+  _image1: {fileID: 7834874135870571226}
   _restartNGScreen: {fileID: 2019992139422046793}
   _restart: {fileID: 164457404547514501}
   _restartNG: {fileID: 3724957513584278607}

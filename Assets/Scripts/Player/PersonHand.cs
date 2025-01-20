@@ -31,11 +31,19 @@ public class PersonHand : MonoBehaviour
     {
         _control = new PlayerControl();
         _control.Player.Interact.started += context => Interaction();
-        _control.Player.Throw.started += context => ThrowObject();
         _control.Player.Throw.started += context => CreateScrach();
+        _control.Player.Throw.started += context => ThrowObject();
         _control.Player.Drop.started += context => DropObject();
         _inventaryCard.Add(AccessCardColor.None,true);
         GameMode.PersonHand = this;
+    }
+
+    private void OnDestroy()
+    {
+      /*  _control.Player.Interact.started -= context => Interaction();
+        _control.Player.Throw.started -= context => ThrowObject();
+        _control.Player.Throw.started -= context => CreateScrach();
+        _control.Player.Drop.started -= context => DropObject();*/
     }
 
     private void CreateScrach()
@@ -254,13 +262,7 @@ public class PersonHand : MonoBehaviour
 
     private void ThrowObject() 
     {
-        Debug.LogWarning("Попытка создать объект на  " + _hitObject);
-        if (_grabObject == null)
-            if (_hitObject != null && (_hitObject.tag == "VerticalHolst" || _hitObject.tag == "HorizontallHolst"))
-            {
-                GameObject gameObject = Instantiate(_scrach, _hitObject.transform.position, new Quaternion(0,90,0,0));
-            }
-            else return;
+        if (_grabObject == null) return;
         _grabObject.layer = 8;
         _grabObject.transform.SetParent(null);
         _grabObject.transform.localScale = _startScaleGrabObj;

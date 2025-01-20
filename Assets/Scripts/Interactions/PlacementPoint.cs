@@ -20,9 +20,15 @@ public class PlacmentPoint : MonoBehaviour, IInteractable
         Events.Instance.OnReloadLevel += Reload;
     }
 
+    private void OnDisable()
+    {
+        Events.Instance.OnReloadLevel -= Reload;
+    }
+
     private void Reload()
     {
-        audioSource.Stop();
+        if (audioSource!=null) 
+            audioSource.Stop();
     }
 
     private IEnumerator ShowText()

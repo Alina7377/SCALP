@@ -257,6 +257,7 @@ public class GridManager : MonoBehaviour
             {
                 _enemyManager.DestroyAllEnemies();
                 _enemyManager.CreateEnemy();
+                
             }
         }
     }
@@ -593,6 +594,7 @@ public class GridManager : MonoBehaviour
                 if (roomPrefab == startRoomPrefab)
                 {
                     startRoomInstance = newRoom;
+                  //  _savedObject.SaveStartRoomPosition(startRoomInstance.transform);
                 }
                 else if (roomPrefab == finishRoomPrefab)
                 {

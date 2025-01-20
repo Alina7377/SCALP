@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FirstPersonMovement : MonoBehaviour
@@ -54,14 +55,16 @@ public class FirstPersonMovement : MonoBehaviour
     private void Reload()
     {
         // Делаем имитацию смерти
-        gameObject.SetActive(false);
+        if (gameObject!=null)
+            gameObject.SetActive(false);
 
         // Настриваем все параметры
         transform.position = _startPosition;
         transform.rotation = _startRotation;
         originalHeight = controller.height;     
         _isAlive = true;
-        gameObject.SetActive(true);
+        if (gameObject != null)
+            this.gameObject.SetActive(true);
         _control.Enable();
         GameMode.PlayerUI.ChangeVisiblePayer(false);
         GameMode.FirstPersonLook.AnBlockPlayerController();
@@ -76,6 +79,11 @@ public class FirstPersonMovement : MonoBehaviour
     private void OnDisable()
     {
         _control.Disable();
+    }
+
+    private void OnDestroy()
+    {
+        Events.Instance.OnReloadLevel -= Reload;
     }
 
     private void Sneak()

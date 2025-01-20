@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class SavedObject : MonoBehaviour
 {
-    [SerializeField] private GameObject _prefReport;
-    [SerializeField] private GameObject _prefAudioRecord;
+    [SerializeField] private GameObject _prefStartRoom;
 
     private Dictionary<PickableItem, SObgectTransform> _listObject = new Dictionary<PickableItem, SObgectTransform>();
     private Dictionary<RoomAccessControl, bool[]> _doorData = new Dictionary<RoomAccessControl, bool[]>();
     private List<GameObject> _collectebleObjects = new List<GameObject>();
-    private Vector3 _playerPosition;
-    private Quaternion _playerRotation;
+    private Vector3 _startRoomPosition;
+    private Quaternion _startRoomRotation;
+    private Transform _startRoomParent;
     private int _countScrach = 100;
     private List<GameObject> _listScrach = new List<GameObject>();
+
 
 
     private void Awake()
@@ -58,12 +59,12 @@ public class SavedObject : MonoBehaviour
         }
     }
 
-    private void MovementPlayerPosition() 
+    public GameObject CreateStartRoom()
     {
-        GameMode.FirstPersonMovement.transform.position = _playerPosition;
-        GameMode.FirstPersonMovement.transform.rotation = _playerRotation;
-    }
 
+        return Instantiate(_prefStartRoom, _startRoomPosition, _startRoomRotation);
+    }
+   
     private void ClearScrech()
     {
         foreach (var item in _listScrach)
@@ -73,6 +74,16 @@ public class SavedObject : MonoBehaviour
         _listScrach.Clear();
     }
 
+    /// <summary>
+    /// Сохраняем стартовую комнату для презапуска игрока
+    /// </summary>
+    /// <param name="startRoom"></param>
+    public void SaveStartRoomPosition(Transform startRoom)
+    {
+
+        _startRoomPosition = startRoom.position;
+        _startRoomRotation = startRoom.rotation;
+    }
 
     /// <summary>
     /// Подготавлеваем класс к перезаписи
@@ -140,7 +151,8 @@ public class SavedObject : MonoBehaviour
         ClearScrech();
     }
 
-   
+
+
     public void AddScrach(GameObject newScrach) 
     {
         _listScrach.Add(newScrach);
@@ -151,5 +163,12 @@ public class SavedObject : MonoBehaviour
         }
     }
 
+    public void CleaatAllData() 
+    {
+        _listScrach.Clear();
+        _listObject.Clear();
+        _doorData.Clear();
+        _collectebleObjects.Clear();
+    }
     
 }
