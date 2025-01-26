@@ -1895,7 +1895,7 @@ MonoBehaviour:
   _layerMaskScrach:
     serializedVersion: 2
     m_Bits: 9
-  _scrachDistance: 0.3
+  _scrachDistance: 0.4
 --- !u!82 &863712207813219978
 AudioSource:
   m_ObjectHideFlags: 0

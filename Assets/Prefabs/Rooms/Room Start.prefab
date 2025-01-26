@@ -3462,7 +3462,7 @@ PrefabInstance:
     - target: {fileID: 8425346946202611286, guid: 024676f4593f4b146bb56c5a879cb1ca,
         type: 3}
       propertyPath: _scrachDistance
-      value: 0.35
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

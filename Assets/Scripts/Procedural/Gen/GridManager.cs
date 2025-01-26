@@ -127,6 +127,7 @@ public class GridManager : MonoBehaviour
         _navMeshSurface = GetComponent<NavMeshSurface>();
         _savedObject = GetComponent<SavedObject>();
         _enemyManager = GetComponent<EnemyManager>();
+        GameMode.Generate = true;
         if (!_isTraining)
         {
             InitializeLevel();
@@ -138,8 +139,10 @@ public class GridManager : MonoBehaviour
 
     void InitializeLevel()
     {
+        Debug.LogError("Запускаем с настройками " + Settings.Instance.GetParam("level"));
         if (Settings.Instance.GetParam("level") == "Standard")
         {
+            Debug.LogError("Попали с настройками");
             // Момент начала игры - запоминаем стартовое время
             GameMode.StartTime = Time.time;
             // Определяем, что начинаем играть
