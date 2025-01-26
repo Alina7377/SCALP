@@ -15,6 +15,7 @@ public class Generator : MonoBehaviour, IInteractable
     private void OnDisable()
     {
         Events.Instance.OnReloadLevel -= Reload;
+       
     }
     private void Reload()
     {

@@ -182,7 +182,7 @@ To: Dr. Martin Hendricks, Director of S.C.A.L.P. Lab.
 </align>
  </line-height>
 <line-indent=8%> I am starting to doubt anyone from upper management reads my reports! And you continue to ignore my calls, Hendricks! How can I successfully operate in the company's best interests when I am kept in the dark?
-For your information, the specimen has significantly improved its cognitive abilities. It successfully passes all our tests, recognizes each member of the team, and follows everything happening in the laboratory with noticeable awareness. I wouldn't be surprised if it's thinking abilities ultimately exceed all our expectations.";|Reports.Page10;f;"<b>ЭКСПЕРИМЕНТ №42-D
+For your information, the specimen has significantly improved its cognitive abilities. It successfully passes all our tests, recognizes each member of the team, and follows everything happening in the laboratory with noticeable awareness. I wouldn't be surprised if it's thinking abilities ultimately exceed all our expectations.";|Reports.Page10;n;"<b>ЭКСПЕРИМЕНТ №42-D
 Отчёт №10 Доктора Тревора Оуэнса</b>
 Кому: Доктору Мартину Хендриксу, директору S.C.A.L.P. Lab.
 <line-height=50%> 
@@ -200,7 +200,7 @@ To: Dr. Martin Hendricks, Director of S.C.A.L.P. Lab.
 </align>
  </line-height>
 <line-indent=8%> Hendricks, I received a notification that two more employees are being transferred from the project to our facility in <cspace=-0.1em> ██████.</cspace> However, I have stopped being surprised by such treatment from the Board of Directors. You are all slowly and steadily ruining the potential of our best project.
-By the way, after the last test, when we subjected the sample to discharges of varying power, upon returning to the chamber, it persistently slammed against the glass, causing damage. The glass needs to be replaced, but you won't even allocate a budget for that, will you? Whatever, it’s no longer my concern, I am resigning.";|Reports.Image1;f;;;|Reports.Image2;f;;;|Audio.Sound1;f;"<b>Журнал наблюдений, доктор Хендрикс,
+By the way, after the last test, when we subjected the sample to discharges of varying power, upon returning to the chamber, it persistently slammed against the glass, causing damage. The glass needs to be replaced, but you won't even allocate a budget for that, will you? Whatever, it’s no longer my concern, I am resigning.";|Reports.Image1;f;;;|Reports.Image2;n;;;|Audio.Sound1;f;"<b>Журнал наблюдений, доктор Хендрикс,
  12 августа 1985 года, 21:45.</b>
  
 Объект H-17 проявляет признаки нейронной активности. Жизненные показатели стабилизируются в ожидаемых пределах. Первоначальные реакции на стимулы обнадеживают. Переходим ко второй фазе активационного протокола. Это может быть прорыв, которого мы так ждали.";"<b>Observation Log, Dr. Hendricks, August 12,
@@ -218,7 +218,7 @@ I can't shake the feeling we're crossing a line. What we're doing... blending di
 
  Объект H-17 продемонстрировал аномальные нейронные всплески во время последней стимуляции. Рефлекторные реакции превышают прогнозируемые модели. Корректирую параметры для следующей сессии. Необходимо внимательно наблюдать.";"<b>Experiment Log 112, Dr. Owens.</b> 
 
-Subject H-17 exhibited abnormal neural spikes during the last stimulation. Reflex reactions exceed predicted models. Adjusting parameters for the next session. Close monitoring required.";|         Audio.Sound5;f;"<b>Исследовательские заметки, доктор Уитман.</b> 
+Subject H-17 exhibited abnormal neural spikes during the last stimulation. Reflex reactions exceed predicted models. Adjusting parameters for the next session. Close monitoring required.";|         Audio.Sound5;n;"<b>Исследовательские заметки, доктор Уитман.</b> 
 
 Гибридные клетки демонстрируют удивительные регенеративные свойства. Если мы сможем использовать это, это перевернет мир трансплантологии. Именно ради этого мы и создали S.C.A.L.P. Lab. Я с оптимизмом жду следующей фазы.";"<b>Research Notes, Dr. Whitman.</b> 
 
@@ -226,7 +226,7 @@ Hybrid cells are demonstrating remarkable regenerative properties. If we can har
 
 В связи с последними аномалиями усиливаем наблюдение во всех приоритетных секторах. Особое внимание уделите лабораториям 3 и 4. Сообщайте о любых необычных событиях немедленно. Наша задача — обеспечить безопасность объекта.";"<b>Security Briefing, Captain Hayes.</b> 
 
-Due to recent anomalies, we're reinforcing surveillance in all priority sectors. Pay extra attention to Labs 3 and 4. Report any unusual activity immediately. Our job is to secure this facility.";|         Audio.Sound7;f;"<b>Личный дневник, Эмили Росс.</b> 
+Due to recent anomalies, we're reinforcing surveillance in all priority sectors. Pay extra attention to Labs 3 and 4. Report any unusual activity immediately. Our job is to secure this facility.";|         Audio.Sound7;n;"<b>Личный дневник, Эмили Росс.</b> 
 
 Я приняла решение. Не могу больше здесь работать. Этические компромиссы слишком велики. Завтра подам заявление об уходе. Надеюсь, еще не поздно что-то изменить.";"<b>Personal diary, Emily Ross.</b> 
 
