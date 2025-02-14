@@ -5,7 +5,7 @@ public class EnemyManager : MonoBehaviour
 {
     [SerializeField, Tooltip(" оличество врагов.")] private int _countEnemy;
     [SerializeField, Tooltip(" оличество врагов, блуждающих по коридорам")] private int _countEnemyNoRoom;
-    [SerializeField] private GameObject _enemyPref;
+    [SerializeField] private List<GameObject> _enemyPref;
 
     [Header("Ќастройки дл€ обучающего уровн€")]
     [SerializeField] private List<RoomAccessControl> _rooms;
@@ -118,6 +118,7 @@ public class EnemyManager : MonoBehaviour
     {
         // ƒобавить, что сначала спавним в об€зательных комнатах, потом в коридорах, а затем в остальных
         int indexPatch =-1;
+        int indexEnemyPrefab = 0;
         RoomAccessControl room = null;
         Transform spawnPoint;
         for (int i = 0; i < _countEnemy; i++) 
@@ -141,7 +142,9 @@ public class EnemyManager : MonoBehaviour
             if (spawnPoint == null)
                 spawnPoint = GetNewPoint(ref room, ref indexPatch, true, true);
             if (spawnPoint == null)  continue;
-            GameObject newEnmy = Instantiate(_enemyPref, spawnPoint);
+            indexEnemyPrefab = UnityEngine.Random.Range(0, _enemyPref.Count);
+            GameObject newEnmy = Instantiate(_enemyPref[indexEnemyPrefab], spawnPoint);
+            newEnmy.name = "Enemy_" + i.ToString();
             EnemyAI enemyAi = newEnmy.GetComponent<EnemyAI>();
             enemyAi.SetStartParameters(room, indexPatch, this);
             _enemys.Add(enemyAi);        

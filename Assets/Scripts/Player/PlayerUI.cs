@@ -175,7 +175,6 @@ public class PlayerUI : MonoBehaviour
     {
         if (_isSaveProfilDate == false && Settings.Instance.GetParam("level") == "Standard" && GameMode.Generate)
         {
-            Debug.LogError("Сохраняем время игры " + (Time.time - GameMode.StartTime));
             Profile.Instance.SafeProfilDate(Time.time - GameMode.StartTime, isWin);
             Profile.Instance.SafeCSV();
             _isSaveProfilDate = true;

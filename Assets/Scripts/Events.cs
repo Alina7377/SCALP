@@ -19,7 +19,7 @@ public class Events : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        // end of new code
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }

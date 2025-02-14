@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
@@ -32,10 +33,11 @@ public class EnemyAI : MonoBehaviour
     private float _timeToRotate = 0.3f;
 
     private float _currentTime;
-   
-    private EEnemyState _state = EEnemyState.Patrolling; // ƒл€ хранение текущего состо€ни€ бота - по умолчанию - патруль
+
+    public EEnemyState _oldState;
+    public EEnemyState _state = EEnemyState.Patrolling; // ƒл€ хранение текущего состо€ни€ бота - по умолчанию - патруль
     private bool _isWalk = true;
-    private MeshRenderer _meshRenderer;
+
     private float _countdownTimeSearch; // ¬рем€ отсчета дл€ поиска игрока
     private bool _isLightAlways = false;
     private float _maxTimeToNextRandomSound = 6f;
@@ -55,7 +57,6 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _meshRenderer = GetComponent<MeshRenderer>();
         StartPatrol();
         Events.Instance.OnBalckOut += LightAlways;
     }
@@ -83,7 +84,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (_state == EEnemyState.Chasing) StopCoroutine(WaitAtWaypoint());
         yield return new WaitForSeconds(_waitTime);
-        if(_state == EEnemyState.Patrolling) GoToNextWaypoint();
+        if(_state == EEnemyState.Patrolling) StartPatrol();
     }
 
     private IEnumerator WaitAlert()
@@ -139,7 +140,9 @@ public class EnemyAI : MonoBehaviour
             _isWalk = false;
             _audioSteps.Stop();
             StartCoroutine(WaitAtWaypoint());
-        }        
+        }
+        else
+            if (_isWalk && _animator.GetInteger("State") != 1) _animator.SetInteger("State", 1);
     }
 
     /// <summary>
@@ -156,7 +159,6 @@ public class EnemyAI : MonoBehaviour
             _audioSteps.Stop();
             PlaySound(_audioOther, 5, true, false);
         }
-        else Debug.Log("Ќаходитс€ в сост€нии тервоги");
     }
 
     /// <summary>
@@ -166,10 +168,8 @@ public class EnemyAI : MonoBehaviour
     {
         if (Time.time - _countdownTimeSearch >= _searchTime)
         {
-            Debug.Log("«аканчиваем поиск");
             StartPatrol();
         }
-        else Debug.Log("Ќаходитс€ в сост€нии поиска");
     }
 
     private void GoToNextWaypoint()
@@ -203,16 +203,14 @@ public class EnemyAI : MonoBehaviour
             default:
                 break;
         }
-    }    
+    }
 
     /// <summary>
     /// ѕереходим в режим патрулировани€
     /// </summary>
     private void StartPatrol()
     {
-        if (_state == EEnemyState.Alerted) 
-            Debug.Log("ѕереход в патрулирование после тревоги");
-        Debug.Log("ѕереходим в патрулирование");
+        _oldState = _state;
         _state = EEnemyState.Patrolling;
         _agent.speed = _speedPatrol;
         if (_isLightAlways)
@@ -257,11 +255,12 @@ public class EnemyAI : MonoBehaviour
         {            
             StartChasing();
         }
+        /// Ёто действи€, при нахождении игрока в зоне атаки. Ќужно добавить на проверку прип€тси€ между игроком и врагом (скорее всего луч)
         if (_state == EEnemyState.Chasing && Vector3.Distance(transform.position, GameMode.FirstPersonMovement.transform.position) < 0.6)
         {
             SetPathcForAgent(gameObject.transform.position);
             transform.LookAt(new Vector3(GameMode.FirstPersonMovement.transform.position.x, transform.position.y, GameMode.FirstPersonMovement.transform.position.z));
-            if (GameMode.FirstPersonMovement.IsAlive())
+         /*   if (GameMode.FirstPersonMovement.IsAlive())
             {
 
                 _animator.SetBool("Found", true);
@@ -273,7 +272,7 @@ public class EnemyAI : MonoBehaviour
             {
                 _animator.SetInteger("State", 0);
                 _audioSteps.Stop();
-            }
+            }*/
 
         }
         else
@@ -298,6 +297,7 @@ public class EnemyAI : MonoBehaviour
     /// </summary>
     public void StartSearchingPlayer()
     {
+        _oldState = _state;
         _state = EEnemyState.Searching;
         _countdownTimeSearch = Time.time;
         _agent.speed = _speedAlertOrSearching;
@@ -314,6 +314,7 @@ public class EnemyAI : MonoBehaviour
         // ≈сли бот преследует, то не отвлекаетс€
         if (_state == EEnemyState.Chasing || _state == EEnemyState.Alerted || _state==EEnemyState.WaitChasing || _state == EEnemyState.WaitAlert) return;
         _isWalk = false;
+        _oldState = _state;
         _state = EEnemyState.Alerted;  
         _agent.speed = _speedAlertOrSearching;
         SetPathcForAgent(transform.position);
@@ -347,6 +348,7 @@ public class EnemyAI : MonoBehaviour
     public void StartChasing() 
     {
         SetPathcForAgent(transform.position);
+        _oldState = _state;
         _state = EEnemyState.WaitChasing;
         _agent.speed = _speedChase;
         _isWalk = true;
