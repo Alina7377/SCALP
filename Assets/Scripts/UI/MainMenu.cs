@@ -87,8 +87,6 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-
-
     public void ChangeValueSound()
     {         
         Settings.Instance.SetParam("volume", _sliderVolume.value.ToString());

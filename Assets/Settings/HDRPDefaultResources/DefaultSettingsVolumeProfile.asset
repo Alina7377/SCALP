@@ -513,7 +513,7 @@ MonoBehaviour:
     m_Value: 0
   radius:
     m_OverrideState: 1
-    m_Value: 1.19
+    m_Value: 4.996
   spatialBilateralAggressiveness:
     m_OverrideState: 0
     m_Value: 0.15
@@ -652,8 +652,8 @@ MonoBehaviour:
   active: 1
   interCascadeBorders: 1
   maxShadowDistance:
-    m_OverrideState: 1
-    m_Value: 150
+    m_OverrideState: 0
+    m_Value: 20
   directionalTransmissionMultiplier:
     m_OverrideState: 0
     m_Value: 1
