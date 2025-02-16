@@ -42,7 +42,7 @@ public class EnemyDetected : MonoBehaviour
             if (hit.collider.tag == "Player")
             {
                 _isDetected = true;
-                _enemyAI.ChasePlayer();
+                _enemyAI.ChasePlayer(_isDetected);
             }
             else
             if (_isDetected)
@@ -71,7 +71,7 @@ public class EnemyDetected : MonoBehaviour
         }
         else
         {
-            _enemyAI.ChasePlayer();
+            _enemyAI.ChasePlayer(_isDetected);
         }
     }
 

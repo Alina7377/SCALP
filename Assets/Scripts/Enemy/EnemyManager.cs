@@ -59,11 +59,11 @@ public class EnemyManager : MonoBehaviour
         }
         else 
         {
-            if (Settings.Instance.GetParam("level") != "Standard")
+          /*  if (Settings.Instance.GetParam("level") != "Standard")
             {
                 _countEnemy = int.Parse(Settings.Instance.GetParam("count_enemy"));
                 //_countEnemyNoRoom = _countEnemy / int.Parse(Settings.Instance.GetParam("count_enemy_corridor"));
-            }
+            }*/
         }
     }
     // Добавьте метод Reset для очистки врагов и связанных данных
