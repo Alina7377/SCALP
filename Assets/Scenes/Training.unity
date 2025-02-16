@@ -10687,6 +10687,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7819339145043426951, guid: 1725c8d030f7fad4ab40b6b7f4c4e164,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1.171875
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819339145043426951, guid: 1725c8d030f7fad4ab40b6b7f4c4e164,
+        type: 3}
+      propertyPath: m_UseViewFrustumForShadowCasterCull
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7895898808978929535, guid: 1725c8d030f7fad4ab40b6b7f4c4e164,
         type: 3}
       propertyPath: m_Name
@@ -10702,6 +10712,36 @@ PrefabInstance:
       propertyPath: gridManager
       value: 
       objectReference: {fileID: 1264752920}
+    - target: {fileID: 8635082556097894171, guid: 1725c8d030f7fad4ab40b6b7f4c4e164,
+        type: 3}
+      propertyPath: useVolumetric
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635082556097894171, guid: 1725c8d030f7fad4ab40b6b7f4c4e164,
+        type: 3}
+      propertyPath: m_ShadowNearPlane
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635082556097894171, guid: 1725c8d030f7fad4ab40b6b7f4c4e164,
+        type: 3}
+      propertyPath: m_ShadowUpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635082556097894171, guid: 1725c8d030f7fad4ab40b6b7f4c4e164,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635082556097894171, guid: 1725c8d030f7fad4ab40b6b7f4c4e164,
+        type: 3}
+      propertyPath: m_UseContactShadow.m_Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635082556097894171, guid: 1725c8d030f7fad4ab40b6b7f4c4e164,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_UseOverride
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8464076837863295282, guid: 1725c8d030f7fad4ab40b6b7f4c4e164, type: 3}
@@ -30655,6 +30695,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 61012673}
     m_Modifications:
+    - target: {fileID: 2083310011756974050, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531562365450864063, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3944067124873655767, guid: 2f4e62a69c107c84786a2683588ef15b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -71776,6 +71826,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 61012673}
     m_Modifications:
+    - target: {fileID: 2083310011756974050, guid: 2f4e62a69c107c84786a2683588ef15b,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3944067124873655767, guid: 2f4e62a69c107c84786a2683588ef15b,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField, Tooltip("—корость во врем€ тревоги или поиска.")] private float _speedAlertOrSearching;
     [SerializeField, Tooltip("—корость поворота.")] private float _speedRotate;
 
-    [SerializeField] private Animator _animator;
+  //  [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _flashlight;
     [SerializeField] private AudioSource _audioOther;
     [SerializeField] private AudioSource _audioSteps;
@@ -24,6 +25,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private List<AudioClip> _soundOther;
 
     private NavMeshAgent _agent;
+    private AnimaorHandler _handlerAnimate;
     private RoomAccessControl _room;
     private int _currentWaypointIndex = 0;
     private EnemyManager _enemyManager;
@@ -33,9 +35,11 @@ public class EnemyAI : MonoBehaviour
     private float _timeToRotate = 0.3f;
 
     private float _currentTime;
-
+    // ƒл€ контрол€
     public EEnemyState _oldState;
     public EEnemyState _state = EEnemyState.Patrolling; // ƒл€ хранение текущего состо€ни€ бота - по умолчанию - патруль
+    //
+
     private bool _isWalk = true;
 
     private float _countdownTimeSearch; // ¬рем€ отсчета дл€ поиска игрока
@@ -43,6 +47,11 @@ public class EnemyAI : MonoBehaviour
     private float _maxTimeToNextRandomSound = 6f;
     private float _timeToNextRandomSound;
     private float _curentTimeSound;
+
+    // ƒл€ контрол€ застреваний
+    private float _timeTojamming;
+    private float _currentTimejamming;
+    private Vector3 _oldPosition;
 
     private void SetPathcForAgent(Vector3 patch) 
     {
@@ -57,8 +66,14 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _handlerAnimate = GetComponent<AnimaorHandler>();
         StartPatrol();
         Events.Instance.OnBalckOut += LightAlways;
+        // ”станавливаем максимально врем€ ожидани€ дл€ проверки на застревание
+        _timeTojamming = Mathf.Max(_waitTime, _alertTime, _searchTime);
+        _currentTimejamming = Time.time;
+        _oldPosition = _agent.transform.position;
+        _oldState = _state;
     }
 
     private void OnDisable()
@@ -68,18 +83,47 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void Update()
-    {
+    {        
         if (_isRotation) Rotate();
         CheckingState();
+        SeyRandomReplick();
+        _handlerAnimate.SetSpeed(_agent);
+        CheackJamming();
+    }
+
+    /// <summary>
+    ///–ешаем проблему с застреванием ботов
+    /// </summary>
+    private void CheackJamming() 
+    {
+        // ћы не провер€ем на застревание при приследовании (хот€ возможно надо переходить в режим поиска)
+        if (_state == EEnemyState.Chasing) return;
+        if (Time.time - _currentTimejamming > _timeTojamming)
+        {
+            // ≈сли бот застр€л, то переводим его в патрулирование
+            if (Vector3.Distance(_oldPosition,_agent.transform.position)<0.05 && _oldState==_state)
+            {
+                Debug.Log(gameObject.name + " застр€л!");
+                StartPatrol(); 
+            }
+            // «аписываем новые данные отслеживани€
+            _oldPosition= _agent.transform.position;
+            _currentTimejamming = Time.time;
+        }
+
+    }
+
+    private void SeyRandomReplick() 
+    {
         if (_state == EEnemyState.Patrolling &&
-            Time.time - _curentTimeSound >= _timeToNextRandomSound)  
+            Time.time - _curentTimeSound >= _timeToNextRandomSound)
         {
             PlayRandomSound(6, _soundOther.Count);
             _curentTimeSound = Time.time;
             _timeToNextRandomSound = UnityEngine.Random.Range(2, _maxTimeToNextRandomSound);
         }
     }
-    
+
     private IEnumerator WaitAtWaypoint()
     {
         if (_state == EEnemyState.Chasing) StopCoroutine(WaitAtWaypoint());
@@ -94,6 +138,12 @@ public class EnemyAI : MonoBehaviour
         if (_state == EEnemyState.Alerted) StartPatrol(); // ¬озвращаемс€ к патрулированию
     }
 
+
+    /// <summary>
+    /// «апуск случайной реплики
+    /// </summary>
+    /// <param name="min"></param>
+    /// <param name="max"></param>
     private void PlayRandomSound(int min, int max) 
     {
         if (UnityEngine.Random.Range(0,100)<40)
@@ -117,7 +167,7 @@ public class EnemyAI : MonoBehaviour
             else
             {
                 SetPathcForAgent(_targetPoint);
-                _animator.SetInteger("State", 1);
+               // _animator.SetInteger("State", 1);
                 _isRotation = false;
                 _isWalk = true;
                 /// ”правление аудио
@@ -136,13 +186,11 @@ public class EnemyAI : MonoBehaviour
     {
         if (_agent.remainingDistance < 0.5f && _agent.remainingDistance > 0 && _isWalk && !_isRotation)
         {
-            _animator.SetInteger("State", 0);
+           // _animator.SetInteger("State", 0);
             _isWalk = false;
             _audioSteps.Stop();
             StartCoroutine(WaitAtWaypoint());
-        }
-        else
-            if (_isWalk && _animator.GetInteger("State") != 1) _animator.SetInteger("State", 1);
+        }     
     }
 
     /// <summary>
@@ -153,7 +201,7 @@ public class EnemyAI : MonoBehaviour
         if (_agent.remainingDistance < 0.5f && _agent.remainingDistance > 0)
         {
             _isWalk = false;
-            _animator.SetInteger("State", 3);
+         //   _animator.SetInteger("State", 3);
             StartCoroutine(WaitAlert());
             // јудио
             _audioSteps.Stop();
@@ -176,7 +224,7 @@ public class EnemyAI : MonoBehaviour
     {
         Vector3 target = _enemyManager.GetNewPoint(ref _room, ref _currentWaypointIndex,false,true).position;
         _isWalk = false;
-        _animator.SetInteger("State", 0);
+       // _animator.SetInteger("State", 0);
         SetPathcForAgent(transform.position);
         _isRotation = true;
         _targetPoint = target;
@@ -216,7 +264,8 @@ public class EnemyAI : MonoBehaviour
         if (_isLightAlways)
             ActivateFlashlight(true);
         else ActivateFlashlight(false);
-        _animator.SetInteger("State", 1);
+        _handlerAnimate.SetState(EEnemyState.Patrolling);
+     //   _animator.SetInteger("State", 1);
         GoToNextWaypoint();
         // ”правление јудио
         _audioOther.Stop();
@@ -249,31 +298,25 @@ public class EnemyAI : MonoBehaviour
     /// <summary>
     /// Ќачало преследовани€ игрока
     /// </summary>
-    public void ChasePlayer() 
+    public void ChasePlayer(bool isVisiblePlayer) 
     {        
         if (_state != EEnemyState.Chasing)
         {            
             StartChasing();
         }
         /// Ёто действи€, при нахождении игрока в зоне атаки. Ќужно добавить на проверку прип€тси€ между игроком и врагом (скорее всего луч)
-        if (_state == EEnemyState.Chasing && Vector3.Distance(transform.position, GameMode.FirstPersonMovement.transform.position) < 0.6)
+        if (_state == EEnemyState.Chasing && Vector3.Distance(transform.position, GameMode.FirstPersonMovement.transform.position) < 0.6 && isVisiblePlayer)
         {
             SetPathcForAgent(gameObject.transform.position);
             transform.LookAt(new Vector3(GameMode.FirstPersonMovement.transform.position.x, transform.position.y, GameMode.FirstPersonMovement.transform.position.z));
-         /*   if (GameMode.FirstPersonMovement.IsAlive())
+            if (GameMode.FirstPersonMovement.IsAlive())
             {
-
-                _animator.SetBool("Found", true);
+                // —мерть монстра только после удара - привезать к анимации
+                _handlerAnimate.Attack();
                 GameMode.FirstPersonMovement.Die();
                 // ”правление аудио
                 _audioSteps.Stop();
             }
-            else
-            {
-                _animator.SetInteger("State", 0);
-                _audioSteps.Stop();
-            }*/
-
         }
         else
         {
@@ -284,9 +327,8 @@ public class EnemyAI : MonoBehaviour
                     SetPathcForAgent(GameMode.FirstPersonMovement.transform.position);
                 }
                 else
-                {
-     
-                    _animator.SetInteger("State", 0);
+                {     
+                  //  _animator.SetInteger("State", 0);
                     _audioSteps.Stop();
                 }
         }
@@ -303,7 +345,8 @@ public class EnemyAI : MonoBehaviour
         _agent.speed = _speedAlertOrSearching;
         ActivateFlashlight(true);
         SetPathcForAgent(transform.position);
-        _animator.SetInteger("State", 3);
+        _handlerAnimate.SetState(_state);
+       // _animator.SetInteger("State", 3);
         // ”правление аудио
         _audioSteps.Stop();
 
@@ -318,7 +361,8 @@ public class EnemyAI : MonoBehaviour
         _state = EEnemyState.Alerted;  
         _agent.speed = _speedAlertOrSearching;
         SetPathcForAgent(transform.position);
-        _animator.SetInteger("State", 4);
+        _handlerAnimate.SetState(_state);
+       // _animator.SetInteger("State", 4);
         _targetPoint = noiseSours;
         transform.LookAt(noiseSours);
         ActivateFlashlight(true);
@@ -333,7 +377,7 @@ public class EnemyAI : MonoBehaviour
         _currentWaypointIndex = waypointIndex;
         _enemyManager = enemyManager;
         // Ќекоторое врем€ стоит на месте, чтобы начать действовать только после того, как заспавн€тьс€ все боты
-        _animator.SetInteger("State", 0);
+       // _animator.SetInteger("State", 0);
         ActivateFlashlight(false);
         StartCoroutine(WaitAtWaypoint());
     }
@@ -347,12 +391,14 @@ public class EnemyAI : MonoBehaviour
 
     public void StartChasing() 
     {
+        if (_state == EEnemyState.WaitChasing) return;
         SetPathcForAgent(transform.position);
         _oldState = _state;
         _state = EEnemyState.WaitChasing;
         _agent.speed = _speedChase;
         _isWalk = true;
-        _animator.SetInteger("State", 2);
+        _handlerAnimate.SetState(_state);
+       // _animator.SetInteger("State", 2);
         ActivateFlashlight(true);
         _audioSteps.Stop();
         PlaySound(_audioOther, 2, true, false);
@@ -380,6 +426,7 @@ public class EnemyAI : MonoBehaviour
             PlaySound(_audioSteps, 1, true, true);
             PlaySound(_audioOther, 1, true, true);
             _state = EEnemyState.Chasing;
+            _handlerAnimate.SetState(_state);
         }
     }
 

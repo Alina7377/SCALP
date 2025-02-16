@@ -1063,7 +1063,7 @@ PrefabInstance:
     - target: {fileID: 2455884122217657667, guid: 08b867fe6fa0f6144b605614144c1176,
         type: 3}
       propertyPath: m_Intensity
-      value: 0.15
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2455884122217657667, guid: 08b867fe6fa0f6144b605614144c1176,
         type: 3}
@@ -1073,7 +1073,7 @@ PrefabInstance:
     - target: {fileID: 2455884122217657667, guid: 08b867fe6fa0f6144b605614144c1176,
         type: 3}
       propertyPath: m_LuxAtDistance
-      value: 2.75
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2455884122217657667, guid: 08b867fe6fa0f6144b605614144c1176,
         type: 3}
@@ -1088,7 +1088,7 @@ PrefabInstance:
     - target: {fileID: 2800847479148201402, guid: 08b867fe6fa0f6144b605614144c1176,
         type: 3}
       propertyPath: m_Intensity
-      value: 15.91549
+      value: 15.915493
       objectReference: {fileID: 0}
     - target: {fileID: 2800847479148201402, guid: 08b867fe6fa0f6144b605614144c1176,
         type: 3}
@@ -1133,7 +1133,7 @@ PrefabInstance:
     - target: {fileID: 5755444733198691367, guid: 08b867fe6fa0f6144b605614144c1176,
         type: 3}
       propertyPath: m_Intensity
-      value: 1.134375
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5755444733198691367, guid: 08b867fe6fa0f6144b605614144c1176,
         type: 3}
